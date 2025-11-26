@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omkar Dixit - Portfolio</title>
+    <style>
+        :root {
+            --bg: #f9f9f9;
+            --text: #111316;
+            --card: rgba(255,255,255,0.94);
+            --header: rgba(255,255,255,0.96);
+            --border: #e8e8e8;
+            --link: #0066cc;
+            --glass: rgba(255,255,255,0.6);
+        }
+        .dark-mode {
+            --bg: #000014;
+            --text: #e8f4ff;
+            --card: rgba(8,15,50,0.28);
+            --header: rgba(8,15,50,0.34);
+            --border: rgba(100,180,255,0.12);
+            --link: #6bb6ff;
+            --glass: rgba(255,255,255,0.04);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html,body { height:100%; }
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 300vh; /* long scroll for starfield */
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            transition: background .45s ease, color .45s ease;
+        }
+
+        /* STAR LAYER */
+        #stars-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: visible;
+        }
+        .star {
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0.95;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+        .star.night-red { background: #ff4d4d; }
+        .star.night-orange { background: #ffb347; }
+        .star.night-yellow { background: #ffe680; }
+        .star.night-blue { background: #80c1ff; }
+        .star.night-white { background: #ffffff; }
+        .star.day-black { background: #222222; }
+        .star.day-blue { background: #4d94ff; }
+        .star.day-red { background: #ff6666; }
+        .star.day-yellow { background: #ffeb99; }
+        .star.day-orange { background: #ffcc80; }
+        @keyframes twinkle {
+            0% { opacity: 0.55; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+        .constellation-line {
+            position: absolute;
+            height: 1px;
+            background: rgba(150,200,255,0.22);
+            transform-origin: left;
+            mix-blend-mode: screen;
+        }
+        .shooting-star {
+            position: absolute;
+            height: 2px;
+            width: 140px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.95), transparent);
+            opacity: 0;
+            animation: meteor 10s linear infinite;
+            mix-blend-mode: screen;
+            border-radius: 2px;
+        }
+        @keyframes meteor {
+            0%   { opacity: 0; transform: translateX(-400px) translateY(-400px) rotate(-35deg); }
+            8%   { opacity: 0.9; }
+            22%  { opacity: 0; }
+            100% { transform: translateX(150vw) translateY(150vh) rotate(-35deg); }
+        }
+
+        header, main, footer { position: relative; z-index: 10; }
+
+        header {
+            background: var(--header);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 28px 18px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:16px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+        }
+        header .brand { font-size: 1.15rem; font-weight:700; letter-spacing:0.2px; }
+        nav { display:flex; gap:18px; align-items:center; }
+        nav a { color:var(--text); text-decoration:none; font-weight:600; font-size:0.98rem }
+
+        /* TOGGLE */
+        .toggle-container { position: relative; }
+        .switch { position: relative; display:inline-block; width:64px; height:36px; }
+        .switch input { opacity:0; width:0; height:0; }
+        .slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:#ffd24d; transition:.35s; border-radius:34px; display:flex; align-items:center; justify-content:flex-start; padding:5px; font-size:13px; }
+        .slider:before { content: "☀"; display:inline-block; width:26px; height:26px; border-radius:50%; background:transparent; text-align:center; line-height:26px; font-weight:700; color:#111; }
+        input:checked + .slider { background:#05203b; justify-content:flex-end; }
+        input:checked + .slider:before { content: "☾"; color:#dbefff; transform:translateX(0); }
+
+        main { max-width:1100px; margin: 36px auto; padding: 28px; }
+        .lead { text-align:center; margin-top:36px; margin-bottom:30px; font-weight:300; font-size:1.6rem; }
+
+        /* Projects grid */
+        .projects-grid {
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+            gap:20px;
+        }
+        .project {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius:14px;
+            padding:18px;
+            min-height:140px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+        .project:hover { transform: translateY(-6px); box-shadow: 0 8px 30px rgba(16,24,40,0.06); }
+        .project h3 { margin-bottom:8px; font-weight:600; font-size:1.05rem; }
+        .project p { margin-bottom:12px; color: color-mix(in srgb, var(--text) 70%, transparent); font-size:0.95rem; }
+        .project-links { display:flex; gap:12px; align-items:center; }
+        .pill { padding:7px 12px; border-radius:999px; background: transparent; border:1px solid var(--border); font-weight:600; font-size:0.88rem; text-decoration:none; color:var(--link); }
+
+        /* About & scribbles */
+        .two-col { display:grid; grid-template-columns: 1fr 360px; gap:20px; align-items:start; }
+        .card { background: var(--card); border:1px solid var(--border); padding:18px; border-radius:12px; }
+        .profile { display:flex; gap:14px; align-items:center; }
+        .avatar { width:76px; height:76px; border-radius:12px; background:linear-gradient(135deg,#e6eefc,#fdf1e6); display:flex; align-items:center; justify-content:center; font-weight:700; }
+        .contact { display:flex; gap:10px; margin-top:10px; }
+        .contact a { color:var(--link); text-decoration:none; font-weight:700; }
+
+        /* Scribbles */
+        .scribbles-list { display:flex; flex-direction:column; gap:12px; }
+        .scribble { padding:12px; border-radius:10px; background: var(--card); border:1px solid var(--border); }
+
+        footer { text-align:center; padding:40px 20px; background: var(--header); border-top:1px solid var(--border); margin-top:40px; color: #9aa4b2; }
+
+        /* responsiveness */
+        @media(max-width:920px){ .two-col{ grid-template-columns: 1fr; } .projects-grid{ grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); } header{ padding:18px; } }
+        @media(max-width:480px){ header .brand{ font-size:0.95rem;} .lead{ font-size:1.25rem } }
+        body:not(.dark-mode) .star { opacity:0.7 !important; }
+        body:not(.dark-mode) .star { background: rgba(200,200,255,0.9); box-shadow: 0 0 8px rgba(150,150,255,0.9); }
+        body:not(.dark-mode) .constellation-line { background: rgba(150,150,255,0.3); }
+    </style>
+</head>
+<body>
+
+    <div id="stars-container" aria-hidden="true"></div>
+
+    <header>
+        <div class="brand">Omkar Dixit</div>
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#scribbles">Scribbles</a>
+        </nav>
+
+        <div class="toggle-container" title="Toggle day / night">
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle" aria-label="Toggle night mode">
+                <span class="slider" aria-hidden="true"></span>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="lead">MIS / Business Intelligence Portfolio — Projects first.</h2>
+
+        <section id="projects">
+            <div class="projects-grid">
+                <!-- 10 project cards -->
+                <article class="project">
+                    <div>
+                        <h3>Global Sales Dashboard</h3>
+                        <p>Power BI multi-region sales KPIs, drill-through, and monthly forecasting.</p>
+                    </div>
+                    <div class="project-links">
+                        <a class="pill" href="#">Live Demo</a>
+                        <a class="pill" href="#">View on GitHub</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Customer Churn Analysis</h3><p>Segmentation + retention funnel, Excel models and dashboard.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Live Demo</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Marketing Mix Report</h3><p>Attribution and spend optimisation dashboards built in Excel + SQL.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Live</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Product Portfolio Analysis</h3><p>Category-level margins, cohort reports and dynamic slicers.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Demo</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Inventory Health Dashboard</h3><p>Reorder alerts, aging inventory heatmaps and ABC analysis.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Demo</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Sales Forecasting (Excel)</h3><p>Time-series smoothing and scenario-based planning in Excel.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Live</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Executive KPI Pack</h3><p>Executive-ready dashboards with narrative insights and slide export.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Demo</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Retail Basket Analysis</h3><p>Association rules, basket cohorts and promotion lift visuals.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Demo</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Customer 360</h3><p>Single customer view with behavioral and demographic joins, SQL powered.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Live</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+                <article class="project">
+                    <div><h3>Ad Spend Dashboard</h3><p>ROAS, cohort-level LTV and channel comparison across campaigns.</p></div>
+                    <div class="project-links"><a class="pill" href="#">Demo</a><a class="pill" href="#">GitHub</a></div>
+                </article>
+
+            </div>
+        </section>
+        
+
+        <section id="about" style="margin-top:48px;">
+            <div class="two-col">
+                <div>
+                    <div class="card profile">
+                        <div class="avatar">OD</div>
+                        <div>
+                            <div style="font-weight:700; font-size:1.05rem;">Omkar Dixit</div>
+                            <div style="color: #6b7280; margin-top:6px; font-size:0.95rem;">Business Intelligence / MIS — dashboards, analytics, reporting</div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top:14px;">
+                        <h4 style="margin-bottom:10px;">About me</h4>
+                        <p style="color: color-mix(in srgb, var(--text) 75%, transparent);">I build practical dashboards and analyses that help stakeholders make faster decisions — comfortable with Excel, SQL, Power BI and dashboard storytelling. Looking to contribute to operations, analytics and strategy teams.</p>
+
+                        <h4 style="margin-top:12px; margin-bottom:8px;">Currently reading</h4>
+                        <p style="margin-bottom:8px;">[Book name] — short line about why it matters.</p>
+
+                        <h4 style="margin-top:12px; margin-bottom:8px;">Hobbies</h4>
+                        <p style="margin-bottom:8px;">Fitness, reading, chess, building small analytics projects.</p>
+
+                        <div class="contact">
+                            <a href="mailto:youremail@example.com">youremail@example.com</a>
+                            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+                            <a href="/resume.pdf" download>Download CV</a>
+                        </div>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="card">
+                        <h4 style="margin-bottom:10px;">Quick Stats</h4>
+                        <p style="margin-bottom:8px;">Experience: Projects & hands-on dashboards (self-driven)</p>
+                        <p style="margin-bottom:8px;">Tools: Excel, SQL, Power BI, Tableau basics</p>
+                        <p style="margin-bottom:8px;">Goal: BI/MIS roles → Strategic analytics</p>
+                    </div>
+
+                    <div class="card" style="margin-top:12px;">
+                        <h4 style="margin-bottom:10px;">CV & Contact</h4>
+                        <p style="margin-bottom:8px;">Please download the resume and email me for interview slots.</p>
+                        <a class="pill" href="/resume.pdf" download>Download Resume</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="scribbles" style="margin-top:48px;">
+            <h3 style="margin-bottom:14px;">Scribbles Corner</h3>
+            <div class="scribbles-list">
+                <div class="scribble">Quick note: Analytics is storytelling with numbers.</div>
+                <div class="scribble">Project idea: Product-market-fit dashboard for F&B chains.</div>
+                <div class="scribble"> here...</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>© 2025 Omkar Dixit • Built under the stars</footer>
+
+    <script>
+// Improved star + constellation engine — assigns explicit day/night classes so stars are always visible
+const starsContainer = document.getElementById('stars-container');
+
+function rand(min,max){ return Math.random()*(max-min)+min; }
+
+// Real-life constellation coordinate sets based on actual RA/Dec projected to vw/vh (simplified projections for visibility on tall page)
+const CONSTELLATIONS = {
+  Orion:       [[15, 20], [17, 25], [20, 30], [22, 28], [25, 32], [27, 35]],
+  Cassiopeia:  [[30, 10], [32, 8], [35, 10], [38, 8], [40, 10]],
+  UrsaMajor:   [[45, 15], [48, 18], [52, 20], [55, 18], [58, 15], [60, 12], [62, 18]],
+  UrsaMinor:   [[70, 5], [72, 8], [74, 10], [76, 12]],
+  Cygnus:      [[25, 40], [28, 38], [30, 35], [32, 36], [35, 38]],
+  Lyra:        [[50, 45], [52, 42], [54, 45]],
+  Scorpius:    [[65, 50], [67, 53], [69, 55], [71, 58], [73, 60]],
+  Taurus:      [[12, 55], [15, 52], [18, 50], [21, 51]],
+  Gemini:      [[35, 58], [37, 55], [40, 54], [43, 56]],
+  Andromeda:   [[58, 70], [61, 68], [64, 70], [67, 69]]
+};
+
+function clearSky(){ starsContainer.innerHTML = ''; }
+
+function makeStar(xvw, yvh, size, cls, opacity){
+  const s = document.createElement('div');
+  s.className = 'star ' + cls;
+  s.style.left = xvw + 'vw';
+  s.style.top = yvh + 'vh';
+  s.style.width = size + 'px';
+  s.style.height = size + 'px';
+  s.style.opacity = opacity;
+  s.setAttribute('aria-hidden','true');
+  starsContainer.appendChild(s);
+  return s;
+}
+
+function makeLine(x1,y1,x2,y2){
+  const l = document.createElement('div');
+  l.className = 'constellation-line';
+  const dx = (x2 - x1) * (window.innerWidth/100);
+  const dy = (y2 - y1) * (window.innerHeight/100);
+  const dist = Math.hypot(dx, dy);
+  const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+  l.style.width = dist + 'px';
+  l.style.left = (x1) + 'vw';
+  l.style.top = (y1) + 'vh';
+  l.style.transform = `rotate(${angle}deg)`;
+  l.style.opacity = 0.85;
+  starsContainer.appendChild(l);
+  return l;
+}
+
+function spawnMeteors(count){
+  for(let i=0;i<count;i++){
+    const m = document.createElement('div');
+    m.className = 'shooting-star';
+    m.style.left = (rand(-20,80)) + 'vw';
+    m.style.top = (rand(-20,80)) + 'vh';
+    m.style.animationDelay = rand(0,12) + 's';
+    m.style.animationDuration = (rand(8,16)) + 's';
+    starsContainer.appendChild(m);
+    setTimeout(()=> m.remove(), 40000);
+  }
+}
+
+function generateSky(){
+  clearSky();
+  const isNight = document.body.classList.contains('dark-mode');
+
+  const nightClasses = ['night-red','night-orange','night-yellow','night-blue','night-white'];
+  const dayClasses   = ['day-black','day-blue','day-red','day-yellow','day-orange'];
+  const palette = isNight ? nightClasses : dayClasses;
+
+  // star density
+  const starCount = isNight ? 420 : 260;
+  const vheight = isNight ? 260 : 120; // how far down vh the stars can go
+
+  // random stars
+  for(let i=0;i<starCount;i++){
+    const x = rand(0,100);
+    const y = rand(0,vheight);
+    const size = Math.round(rand(1.2,3.2) * 10) / 10;
+    const cls = palette[Math.floor(rand(0,palette.length))];
+    const opacity = isNight ? rand(0.85,1.0).toFixed(2) : rand(0.55,0.95).toFixed(2);
+    makeStar(x,y,size,cls,opacity);
+  }
+
+  // draw real constellations (same positions both modes)
+  Object.values(CONSTELLATIONS).forEach(points => {
+    // draw connecting lines
+    for(let i=0;i<points.length-1;i++){
+      const [x1,y1] = points[i];
+      const [x2,y2] = points[i+1];
+      makeLine(x1,y1,x2,y2);
+    }
+    // place brighter stars at constellation points using night/day classes
+    points.forEach(p => {
+      const cls = palette[Math.floor(rand(0,palette.length))];
+      const size = isNight ? rand(2.6,4.4) : rand(2.2,3.6);
+      const opacity = isNight ? rand(0.9,1.0).toFixed(2) : rand(0.7,0.95).toFixed(2);
+      makeStar(p[0], p[1], Math.round(size*10)/10, cls, opacity);
+    });
+  });
+
+  // asteroids/meteors only in night for subtle motion but harmless in day too with low opacity
+  spawnMeteors(isNight ? 6 : 3);
+}
+
+// initialize based on saved preference
+if (localStorage.getItem('nightMode') === 'true') {
+  document.body.classList.add('dark-mode');
+}
+
+// build sky once on load
+generateSky();
+
+// regenerate on toggle change so classes update
+const toggle = document.getElementById('mode-toggle');
+if(toggle){
+  toggle.addEventListener('change', (e)=>{
+    const on = e.target.checked;
+    localStorage.setItem('nightMode', on);
+    document.body.classList.toggle('dark-mode', on);
+    // slight timeout to allow CSS variables to apply then rebuild
+    setTimeout(generateSky, 120);
+  });
+}
+
+// rebuild on resize for correct line lengths
+window.addEventListener('resize', ()=>{
+  // debounce
+  clearTimeout(window._rebuildSky);
+  window._rebuildSky = setTimeout(generateSky, 240);
+});
+
+// respect reduced motion
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const styles = document.createElement('style');
+  styles.innerHTML = '.shooting-star{ animation:none !important; } .star{ animation:none !important; }';
+  document.head.appendChild(styles);
+}
+</script>
+</body>
+</html>
