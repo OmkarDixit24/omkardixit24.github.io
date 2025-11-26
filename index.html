@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omkar Dixit - Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>text{fill:black;}@media(prefers-color-scheme:dark){text{fill:white;}}</style><text y='.9em' font-size='90'>OD</text></svg>">
     <style>
         :root {
             --bg: #f9f9f9;
@@ -85,6 +86,21 @@
             animation: meteor 10s linear infinite;
             mix-blend-mode: screen;
             border-radius: 2px;
+        }
+        .andromeda-galaxy {
+            position: absolute;
+            width: 20vw;
+            height: 20vw;
+            background: radial-gradient(ellipse at center, rgba(190, 220, 255, 0.4) 0%, rgba(190, 220, 255, 0.15) 40%, transparent 70%);
+            border-radius: 50%;
+            transform: rotate(-35deg);
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            box-shadow: 0 0 40px 20px rgba(190, 220, 255, 0.1);
+        }
+        .dark-mode .andromeda-galaxy {
+            background: radial-gradient(ellipse at center, rgba(200, 220, 255, 0.5) 0%, rgba(200, 220, 255, 0.2) 35%, transparent 65%);
+            box-shadow: 0 0 50px 25px rgba(200, 220, 255, 0.15);
         }
         @keyframes meteor {
             0%   { opacity: 0; transform: translateX(-400px) translateY(-400px) rotate(-35deg); }
@@ -272,14 +288,14 @@
                         <p style="color: color-mix(in srgb, var(--text) 75%, transparent);">I build practical dashboards and analyses that help stakeholders make faster decisions — comfortable with Excel, SQL, Power BI and dashboard storytelling. Looking to contribute to operations, analytics and strategy teams.</p>
 
                         <h4 style="margin-top:12px; margin-bottom:8px;">Currently reading</h4>
-                        <p style="margin-bottom:8px;">[Book name] — short line about why it matters.</p>
+                        <p style="margin-bottom:8px;">Zero to One by Peter Thiel/Blake Masters — on startups, technology, and building the future.</p>
 
                         <h4 style="margin-top:12px; margin-bottom:8px;">Hobbies</h4>
                         <p style="margin-bottom:8px;">Fitness, reading, chess, building small analytics projects.</p>
 
                         <div class="contact">
-                            <a href="mailto:youremail@example.com">youremail@example.com</a>
-                            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+                            <a href="mailto:omkardixit2@gmail.com">omkardixit2@gmail.com</a>
+                            <a href="https://www.linkedin.com/in/omkardixit2406/" target="_blank" rel="noopener">LinkedIn</a>
                             <a href="/resume.pdf" download>Download CV</a>
                         </div>
                     </div>
@@ -332,7 +348,6 @@ const CONSTELLATIONS = {
   Scorpius:    [[65, 50], [67, 53], [69, 55], [71, 58], [73, 60]],
   Taurus:      [[12, 55], [15, 52], [18, 50], [21, 51]],
   Gemini:      [[35, 58], [37, 55], [40, 54], [43, 56]],
-  Andromeda:   [[58, 70], [61, 68], [64, 70], [67, 69]]
 };
 
 function clearSky(){ starsContainer.innerHTML = ''; }
@@ -378,10 +393,18 @@ function spawnMeteors(count){
     setTimeout(()=> m.remove(), 40000);
   }
 }
-
+function makeAndromeda() {
+    const andromeda = document.createElement('div');
+    andromeda.className = 'andromeda-galaxy';
+    andromeda.style.left = '65vw';
+    andromeda.style.top = '15vh';
+    starsContainer.appendChild(andromeda);
+    return andromeda;
+}
 function generateSky(){
   clearSky();
   const isNight = document.body.classList.contains('dark-mode');
+  const andromeda = makeAndromeda();
 
   const nightClasses = ['night-red','night-orange','night-yellow','night-blue','night-white'];
   const dayClasses   = ['day-black','day-blue','day-red','day-yellow','day-orange'];
@@ -420,11 +443,15 @@ function generateSky(){
 
   // asteroids/meteors only in night for subtle motion but harmless in day too with low opacity
   spawnMeteors(isNight ? 6 : 3);
+  setTimeout(() => {
+        andromeda.style.opacity = isNight ? 0.9 : 0.65;
+    }, 100);
 }
 
 // initialize based on saved preference
 if (localStorage.getItem('nightMode') === 'true') {
   document.body.classList.add('dark-mode');
+  document.getElementById('mode-toggle').checked = true;
 }
 
 // build sky once on load
