@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Revenue Analysis | Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #F0EFEA; --blob-color: #A3C1AD; --text-dark: #2A2A2A; --text-light: #FFFFFF;
+            --accent-gold: #D4AF37; --font-header: 'Montserrat', sans-serif; --font-body: 'Open Sans', sans-serif;
+            --max-width: 900px; --transition-speed: 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-dark); font-family: var(--font-body); line-height: 1.6; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .wrapper { width: 100%; max-width: var(--max-width); display: flex; flex-direction: column; gap: 2rem; }
+        .back-link { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; opacity: 0.7; }
+        .detail-card { background-color: var(--blob-color); border-radius: 4px 80px 4px 80px; padding: 3rem; }
+        .project-meta { color: var(--text-light); font-family: var(--font-header); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+        .project-title { font-family: var(--font-header); font-size: 2.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .live-asset-container { background: var(--bg-color); border: 1px solid rgba(42,42,42,0.15); width: 100%; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; margin-bottom: 2rem; }
+        .asset-icon { font-size: 3.5rem; color: #F2C811; margin-bottom: 1rem; } /* BI Yellow Accent */
+        .content-block { background: var(--bg-color); padding: 2rem; border-radius: 4px; margin-bottom: 1.5rem; border: 1px solid rgba(42,42,42,0.1); }
+        .block-title { font-family: var(--font-header); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .btn-row { display: flex; gap: 1rem; margin-top: 1rem; }
+        .btn { font-family: var(--font-header); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; padding: 0.6rem 1.2rem; border: 1px solid var(--text-dark); text-decoration: none; color: var(--text-dark); background: transparent; transition: all var(--transition-speed); }
+        .btn:hover { background: var(--text-dark); color: var(--bg-color); }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="projects.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Projects Hub</a>
+        <main class="detail-card">
+            <p class="project-meta">Business Intelligence / Interactive Report</p>
+            <h1 class="project-title">Retail Revenue Analysis</h1>
+            
+            <div class="live-asset-container">
+                <i class="fa-solid fa-chart-column asset-icon"></i>
+                <h3 style="font-family: var(--font-header); margin-bottom: 0.5rem;">Interactive Dashboard Environment</h3>
+                <p style="font-size: 0.9rem; max-width: 500px; opacity: 0.8; margin-bottom: 1.5rem;">Embed a public Power BI or Tableau dynamic interface container directly inside this block using a responsive static frame script.</p>
+                <div class="btn-row">
+                    <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View Tableau Server Interface</a>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title"><i class="fa-solid fa-chart-line"></i> Dashboard Context & Value Strategy</h2>
+                <p>This business application tracks organizational retail trends over multiple geographic sectors. Rather than displaying raw metrics tables, this interface cross-references gross inventory intake speeds directly alongside category conversion run-rates to help operations personnel minimize inventory storage overhead costs.</p>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title"><i class="fa-solid fa-tags"></i> Core Operational Insights Delivered</h2>
+                <ul style="padding-left: 1.2rem; font-size: 0.95rem;">
+                    <li>Isolated an ongoing margin drain within multi-tier electronics distribution channels.</li>
+                    <li>Reconfigured stock pipeline parameters by pairing live inventory turnover velocity alongside direct checkout point-of-sale data records.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

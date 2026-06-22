@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Dixit Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           1. INHERITED DESIGN TOKENS (100% VISUAL SAMENESS)
+           ========================================== */
+        :root {
+            --bg-color: #F0EFEA;       /* Warm Off-White */
+            --blob-color: #A3C1AD;     /* Sage Green Primary Container */
+            --text-dark: #2A2A2A;      /* Corporate Soft Charcoal */
+            --text-light: #FFFFFF;     /* White accents */
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --max-width: 1000px;
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Back Navigation Component */
+        .back-nav {
+            margin-bottom: -1rem;
+        }
+        
+        .back-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed);
+        }
+        
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .main-header {
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: var(--font-header);
+            font-size: 2.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           2. UNIFIED MAIN CONTAINER (SAGE BLOB)
+           ========================================== */
+        .about-container-blob {
+            background-color: var(--blob-color);
+            border-radius: 80px 4px 80px 4px; /* Signature asymmetry */
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-title {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--text-dark);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Narrative Text Layout Block */
+        .profile-narrative-card {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(42, 42, 42, 0.15);
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .profile-narrative-card p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .profile-narrative-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ==========================================
+           3. CORE PRINCIPLES GRID (HOW I WORK)
+           ========================================== */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .principle-box {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(42, 42, 42, 0.15);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .principle-icon {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+
+        .principle-title {
+            font-family: var(--font-header);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .principle-desc {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* ==========================================
+           4. RESPONSIVE LAYOUT MEDIA CONTROLS
+           ========================================== */
+        @media (max-width: 768px) {
+            .about-container-blob {
+                padding: 2rem;
+                border-radius: 40px 4px 40px 4px;
+            }
+            .profile-narrative-card {
+                padding: 1.5rem;
+            }
+            .principles-grid {
+                grid-template-columns: 1fr; /* Stacks column cards perfectly vertically on mobile screen ratios */
+                gap: 1rem;
+            }
+            .main-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+        
+        <nav class="back-nav">
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Main Hub</a>
+        </nav>
+
+        <header class="main-header">
+            <h1 class="main-title">DIXIT</h1>
+        </header>
+
+        <main class="about-container-blob">
+            
+            <div>
+                <h2 class="section-title">About Me</h2>
+                
+                <div class="profile-narrative-card">
+                    <p>
+                        I am a disciplined and process-driven professional focused on bridging the gap between raw data streams and everyday business operations. With a background structured around operational coordination, meticulous record-keeping, and stakeholder communication, I specialize in transforming disorganized corporate inputs into clear, actionable tracking mechanisms.
+                    </p>
+                    <p>
+                        My professional philosophy centers around strict information integrity and accuracy. Whether managing complex client documentation schedules or organizing comprehensive relational tracking frameworks, I aim to optimize workflows and reduce communication lag.
+                    </p>
+                    <p>
+                        Beyond data analysis, I invest my free time analyzing digital media trends, reviewing literature, and exploring streamlined design systems. I thrive in structured environments that require consistent attention to detail, proactive task ownership, and clear accountability.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-title" style="font-size: 1.2rem;">Core Operational Principles</h2>
+                <div class="principles-grid">
+                    
+                    <div class="principle-box">
+                        <i class="fa-solid fa-bullseye principle-icon"></i>
+                        <h3 class="principle-title">Process Discipline</h3>
+                        <p class="principle-desc">Adhering strictly to compliance models and standardized workflows to eliminate system errors.</p>
+                    </div>
+
+                    <div class="principle-box">
+                        <i class="fa-solid fa-arrow-down-1-9 principle-icon"></i>
+                        <h3 class="principle-title">Numerical Accuracy</h3>
+                        <p class="principle-desc">Maintaining flawless data logging and database sanity checks for reliable executive reporting.</p>
+                    </div>
+
+                    <div class="principle-box">
+                        <i class="fa-solid fa-handshake principle-icon"></i>
+                        <h3 class="principle-title">Stakeholder Trust</h3>
+                        <p class="principle-desc">Providing clear, professional, and reliable communication across multi-disciplinary teams.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

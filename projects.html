@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Case Studies | Dixit Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           1. INHERITED DESIGN TOKENS (100% VISUAL SAMENESS)
+           ========================================== */
+        :root {
+            --bg-color: #F0EFEA;       /* Warm Off-White */
+            --blob-color: #A3C1AD;     /* Sage Green Primary Container */
+            --text-dark: #2A2A2A;      /* Corporate Soft Charcoal */
+            --text-light: #FFFFFF;     /* White accents */
+            --accent-gold: #D4AF37;    /* Subtle highlight lines */
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --max-width: 1000px;
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Back to Home Navigation Utility */
+        .back-nav {
+            margin-bottom: -1rem;
+        }
+        
+        .back-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed);
+        }
+        
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .main-header {
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: var(--font-header);
+            font-size: 2.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           2. UNIFIED MAIN CONTAINER (SAGE BLOB VARIATION)
+           ========================================== */
+        .content-container-blob {
+            background-color: var(--blob-color);
+            border-radius: 4px 80px 4px 80px; /* Swapped curve axis deliberately to rhythmically complement home page */
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-intro {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--text-dark);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* ==========================================
+           3. RESPONSIVE CAROUSEL-STYLE GRID
+           ========================================== */
+        /* Flexbox/Grid combination that ensures items line up effortlessly on tablets, desktop, & mobile */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        /* Individual Interactive Cards */
+        .project-card {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(42, 42, 42, 0.15);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            cursor: pointer; /* Hints to users that the entire card is actionable to access detail subpages */
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        /* Card Header Elements */
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .project-title {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .domain-icon {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+            background-color: rgba(163, 193, 173, 0.3);
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Media Snapshot Optimization Container */
+        .snapshot-wrapper {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border: 1px solid rgba(42, 42, 42, 0.1);
+            background-color: #E2E1DC; /* Balanced container backdrop while asset lazy-loads */
+        }
+
+        .snapshot-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+
+        .project-card:hover .snapshot-wrapper img {
+            transform: scale(1.03);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Neatly truncates long summaries to keep cards symmetrical */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ==========================================
+           4. CONTEXTUAL BUTTON ACTION MECHANICS
+           ========================================== */
+        .card-actions {
+            margin-top: auto; /* Pushes action buttons perfectly down to layout basement regardless of content size */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        /* Minimalistic Corporate Action Buttons */
+        .btn-action {
+            font-family: var(--font-header);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--text-dark);
+            background: transparent;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-action:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+        }
+
+        /* Highlight Primary Action */
+        .btn-primary-action {
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+        }
+
+        .btn-primary-action:hover {
+            background-color: transparent;
+            color: var(--text-dark);
+        }
+
+        /* ==========================================
+           5. RESPONSIVE MEDIA QUERIES (TABLET & MOBILE)
+           ========================================== */
+        @media (max-width: 768px) {
+            .content-container-blob {
+                padding: 2rem;
+                border-radius: 4px 40px 4px 40px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr; /* Shifts grid into a singular column layout for scrolling on phones */
+                gap: 1.5rem;
+            }
+            .main-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+        
+        <nav class="back-nav">
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Main Hub</a>
+        </nav>
+
+        <header class="main-header">
+            <h1 class="main-title">DIXIT</h1>
+        </header>
+
+        <main class="content-container-blob">
+            <h2 class="section-intro">Projects & Case Studies</h2>
+
+            <div class="projects-grid">
+                
+                <article class="project-card" onclick="window.location.href='project-details-swiggy.html';">
+                    <div class="card-top">
+                        <h3 class="project-title">Logistics Performance Dashboard</h3>
+                        <div class="domain-icon"><i class="fa-solid fa-table-list"></i></div>
+                    </div>
+                    
+                    <div class="snapshot-wrapper">
+                        <img src="assets/swiggy-dashboard.webp" alt="Excel Operations Preview" loading="lazy" width="400" height="180">
+                    </div>
+                    
+                    <p class="project-desc">
+                        A dynamic interactive Excel/Google Sheets operational tracker configured to monitor supply logistics fulfillment rates, turn-around-times (TAT), and agent dispatch efficiency.
+                    </p>
+                    
+                    <div class="card-actions" onclick="event.stopPropagation();">
+                        <a href="https://example.com/live" target="_blank" class="btn-action btn-primary-action"><i class="fa-solid fa-chart-line"></i> Live Tracker</a>
+                        <a href="https://example.com/sheets" target="_blank" class="btn-action"><i class="fa-solid fa-file-excel"></i> View Sheets Data</a>
+                    </div>
+                </article>
+
+                <article class="project-card" onclick="window.location.href='project-details-sales.html';">
+                    <div class="card-top">
+                        <h3 class="project-title">Retail Revenue Revenue Analysis</h3>
+                        <div class="domain-icon"><i class="fa-solid fa-chart-column"></i></div>
+                    </div>
+                    
+                    <div class="snapshot-wrapper">
+                        <img src="assets/retail-analytics.webp" alt="PowerBI Revenue Analysis Preview" loading="lazy" width="400" height="180">
+                    </div>
+                    
+                    <p class="project-desc">
+                        An executive BI reporting suite summarizing store category conversions, profitability margins across regions, and regional inventory health tracking for business intelligence reviews.
+                    </p>
+                    
+                    <div class="card-actions" onclick="event.stopPropagation();">
+                        <a href="https://example.com/tableau" target="_blank" class="btn-action btn-primary-action"><i class="fa-solid fa-eye"></i> View Dashboard</a>
+                        <a href="https://github.com/example" target="_blank" class="btn-action"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+                </article>
+
+                <article class="project-card" onclick="window.location.href='case-study-ecommerce.html';">
+                    <div class="card-top">
+                        <h3 class="project-title">E-Commerce Checkout Optimization</h3>
+                        <div class="domain-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    </div>
+                    
+                    <div class="snapshot-wrapper">
+                        <img src="assets/checkout-case.webp" alt="Case Study Flowchart Preview" loading="lazy" width="400" height="180">
+                    </div>
+                    
+                    <p class="project-desc">
+                        A detailed business case study parsing user drop-off bottlenecks in transactional checkout flows, leveraging data reporting insights to recommend a structured feature roadmap.
+                    </p>
+                    
+                    <div class="card-actions" onclick="event.stopPropagation();">
+                        <a href="project-details-checkout.html" class="btn-action btn-primary-action"><i class="fa-solid fa-book-open"></i> Read Case Study</a>
+                    </div>
+                </article>
+
+                <article class="project-card" onclick="window.location.href='project-details-etl.html';">
+                    <div class="card-top">
+                        <h3 class="project-title">Automated Cross-Platform SQL ETL</h3>
+                        <div class="domain-icon"><i class="fa-solid fa-gears"></i></div>
+                    </div>
+                    
+                    <div class="snapshot-wrapper">
+                        <img src="assets/sql-pipeline.webp" alt="SQL Database Query Preview" loading="lazy" width="400" height="180">
+                    </div>
+                    
+                    <p class="project-desc">
+                        Ad-hoc database configuration script that aggregates unstructured multi-source financial sheets, transforms discrepancies automatically, and dumps clean records for reporting.
+                    </p>
+                    
+                    <div class="card-actions" onclick="event.stopPropagation();">
+                        <a href="https://github.com/example" target="_blank" class="btn-action btn-primary-action"><i class="fa-solid fa-code"></i> View Queries</a>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

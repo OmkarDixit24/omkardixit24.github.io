@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Performance Dashboard | Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* INHERITED DESIGN TOKENS */
+        :root {
+            --bg-color: #F0EFEA; --blob-color: #A3C1AD; --text-dark: #2A2A2A; --text-light: #FFFFFF;
+            --accent-gold: #D4AF37; --font-header: 'Montserrat', sans-serif; --font-body: 'Open Sans', sans-serif;
+            --max-width: 900px; --transition-speed: 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-dark); font-family: var(--font-body); line-height: 1.6; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .wrapper { width: 100%; max-width: var(--max-width); display: flex; flex-direction: column; gap: 2rem; }
+        .back-link { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; opacity: 0.7; }
+        .back-link:hover { opacity: 1; }
+        .detail-card { background-color: var(--blob-color); border-radius: 4px 80px 4px 80px; padding: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .project-meta { color: var(--text-light); font-family: var(--font-header); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+        .project-title { font-family: var(--font-header); font-size: 2.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1.2; }
+        
+        /* Interactive Placeholder Asset Container */
+        .live-asset-container { background: var(--bg-color); border: 1px solid rgba(42,42,42,0.15); width: 100%; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; margin-bottom: 2rem; }
+        .asset-icon { font-size: 3.5rem; color: #107C41; margin-bottom: 1rem; } /* Excel Green */
+        
+        .content-block { background: var(--bg-color); padding: 2rem; border-radius: 4px; margin-bottom: 1.5rem; border: 1px solid rgba(42,42,42,0.1); }
+        .block-title { font-family: var(--font-header); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .btn-row { display: flex; gap: 1rem; margin-top: 1rem; }
+        .btn { font-family: var(--font-header); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; padding: 0.6rem 1.2rem; border: 1px solid var(--text-dark); text-decoration: none; color: var(--text-dark); background: transparent; transition: all var(--transition-speed); }
+        .btn:hover { background: var(--text-dark); color: var(--bg-color); }
+        .btn-primary { background: var(--text-dark); color: var(--bg-color); }
+        
+        @media (max-width: 768px) { .detail-card { padding: 1.5rem; border-radius: 4px 40px 4px 40px; } .project-title { font-size: 1.6rem; } .live-asset-container { height: 250px; } }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="projects.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Projects Hub</a>
+        <main class="detail-card">
+            <p class="project-meta">Operations Management / Live Dashboard</p>
+            <h1 class="project-title">Logistics Performance Dashboard</h1>
+            
+            <div class="live-asset-container">
+                <i class="fa-solid fa-file-excel asset-icon"></i>
+                <h3 style="font-family: var(--font-header); margin-bottom: 0.5rem;">Interactive Spreadsheet Snapshot</h3>
+                <p style="font-size: 0.9rem; max-width: 500px; opacity: 0.8; margin-bottom: 1.5rem;">In a production repository, you can embed a live editable read-only view of your Google Sheet or Excel Web framework here using an iframe.</p>
+                <div class="btn-row">
+                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live Sheet Dataset</a>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title"><i class="fa-solid fa-bullseye"></i> Business Problem & Objective</h2>
+                <p>Logistics operations experienced high operational latency in agent turnaround times (TAT) during peak demand hours. The core objective was to aggregate distributed daily delivery worksheets into a clean central operational viewport to track dispatch bottlenecks and identify underperforming hub sectors.</p>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title"><i class="fa-solid fa-gears"></i> Metrics & Features Configured</h2>
+                <ul style="padding-left: 1.2rem; font-size: 0.95rem;">
+                    <li><strong>Fulfillment Rate Tracking:</strong> Dynamic conditional metrics tracking hourly order drop-offs.</li>
+                    <li><strong>Turnaround Time (TAT) Matrix:</strong> Interactive nested index-match frameworks isolating dispatch delays down to individual regional hubs.</li>
+                    <li><strong>Interactive Filter Panels:</strong> Built explicitly using standalone spreadsheet slicers and cross-referenced multi-tier data validation menus without relying on heavy scripts.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

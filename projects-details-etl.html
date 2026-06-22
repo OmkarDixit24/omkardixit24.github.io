@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated SQL ETL Pipeline | Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #F0EFEA; --blob-color: #A3C1AD; --text-dark: #2A2A2A; --text-light: #FFFFFF;
+            --accent-gold: #D4AF37; --font-header: 'Montserrat', sans-serif; --font-body: 'Open Sans', sans-serif;
+            --max-width: 900px; --transition-speed: 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-dark); font-family: var(--font-body); line-height: 1.6; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .wrapper { width: 100%; max-width: var(--max-width); display: flex; flex-direction: column; gap: 2rem; }
+        .back-link { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; opacity: 0.7; }
+        .detail-card { background-color: var(--blob-color); border-radius: 4px 80px 4px 80px; padding: 3rem; }
+        .project-meta { color: var(--text-light); font-family: var(--font-header); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+        .project-title { font-family: var(--font-header); font-size: 2.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .content-block { background: var(--bg-color); padding: 2rem; border-radius: 4px; margin-bottom: 1.5rem; border: 1px solid rgba(42,42,42,0.1); }
+        .block-title { font-family: var(--font-header); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        
+        /* Code Display Framework block */
+        .code-container { background: #1E1E1E; color: #D4D4D4; padding: 1.5rem; border-radius: 4px; font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; overflow-x: auto; margin: 1rem 0; white-space: pre; }
+        .keyword { color: #569CD6; } .table-name { color: #4EC9B0; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="projects.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Projects Hub</a>
+        <main class="detail-card">
+            <p class="project-meta">Data Processing / Architecture Script</p>
+            <h1 class="project-title">Automated Cross-Platform SQL ETL</h1>
+            
+            <div class="content-block">
+                <h2 class="block-title"><i class="fa-solid fa-database"></i> Database Optimization Context</h2>
+                <p>This technical pipeline resolves operational inefficiencies caused by disparate ledger inputs. Rather than parsing records manually, this relational framework checks, transforms, and updates financial tables dynamically to prepare them for reporting applications.</p>
+                
+                <div class="code-container"><span class="keyword">SELECT</span> region, <span class="keyword">SUM</span>(revenue) 
+<span class="keyword">FROM</span> <span class="table-name">Staging_Retail_Transactions</span>
+<span class="keyword">WHERE</span> status = 'Completed'
+<span class="keyword">GROUP BY</span> region;</div>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title"><i class="fa-solid fa-server"></i> System Integrity Controls Built</h2>
+                <ul style="padding-left: 1.2rem; font-size: 0.95rem;">
+                    <li><strong>Data Normalization:</strong> Strips special characters and fixes date string variations automatically across platforms.</li>
+                    <li><strong>Error Logging Stored Procedures:</strong> Isolates broken record strings automatically without breaking downstream visualization data sets.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

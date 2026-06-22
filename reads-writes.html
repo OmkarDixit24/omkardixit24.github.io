@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reads & Writes | Dixit Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           1. INHERITED DESIGN TOKENS (VISUAL UNIFORMITY)
+           ========================================== */
+        :root {
+            --bg-color: #F0EFEA;       /* Warm Off-White */
+            --blob-color: #A3C1AD;     /* Sage Green Primary Container */
+            --text-dark: #2A2A2A;      /* Corporate Soft Charcoal */
+            --text-light: #FFFFFF;     /* White accents */
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --max-width: 1000px;
+            --transition-speed: 0.3s ease;
+            
+            /* Custom Score Token Tints for Media Tracker */
+            --score-brilliant: #CBDCD0;
+            --score-good: #E2E1DC;
+            --score-waste: #EAA8A8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Standard Back Button Link */
+        .back-nav { margin-bottom: -1rem; }
+        .back-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+        }
+        .back-link:hover { opacity: 1; }
+
+        .main-header { text-align: center; }
+        .main-title {
+            font-family: var(--font-header);
+            font-size: 2.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           2. MAIN CONTAINER LAYER (SAGE BLOB CONFIGURATION)
+           ========================================== */
+        .personal-space-blob {
+            background-color: var(--blob-color);
+            border-radius: 4px 80px 4px 80px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .space-section-title {
+            font-family: var(--font-header);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--text-dark);
+            padding-bottom: 0.4rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ==========================================
+           3. CONSUMING MEDIA RADAR (MOVIES & BOOKS)
+           ========================================== */
+        .radar-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .radar-card {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(42, 42, 42, 0.15);
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.2rem;
+            align-items: start;
+        }
+
+        .radar-cover-frame {
+            width: 100px;
+            height: 145px;
+            background-color: #E2E1DC;
+            border: 1fr solid rgba(42,42,42,0.1);
+            overflow: hidden;
+        }
+
+        .radar-cover-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .radar-details {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .item-title {
+            font-family: var(--font-header);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .item-sub {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.2rem;
+        }
+
+        /* Interactive Movie Score Badges */
+        .score-badge {
+            font-family: var(--font-header);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--text-dark);
+            display: inline-block;
+            margin-top: auto;
+            text-align: center;
+        }
+        .score-1 { background-color: var(--score-brilliant); }
+        .score-2 { background-color: var(--score-good); }
+        .score-3 { background-color: var(--score-waste); }
+
+        /* Book Status Flags */
+        .status-flag {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-style: italic;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: auto;
+        }
+
+        /* ==========================================
+           4. WRITES / SACRED BLOG ARCHITECTURE
+           ========================================== */
+        .blog-stream {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .blog-post-card {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(42, 42, 42, 0.15);
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .blog-text-side {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .blog-title {
+            font-family: var(--font-header);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .blog-image-side {
+            width: 100%;
+            height: 150px;
+            background-color: #E2E1DC;
+            overflow: hidden;
+            border: 1px solid rgba(42,42,42,0.1);
+        }
+
+        .blog-image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Read More Link layout rules */
+        .btn-read-more {
+            font-family: var(--font-header);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: opacity var(--transition-speed);
+        }
+        .btn-read-more:hover { opacity: 0.6; }
+
+        /* Social Share Row */
+        .blog-share-footer {
+            border-top: 1px solid rgba(42, 42, 42, 0.1);
+            padding-top: 0.8rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .share-links-wrapper {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .share-btn {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: opacity var(--transition-speed);
+        }
+        .share-btn:hover { opacity: 0.5; }
+
+        /* ==========================================
+           5. THE PAGINATION SYSTEM HACK
+           ========================================== */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .page-num {
+            font-family: var(--font-header);
+            font-size: 0.85rem;
+            font-weight: 700;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--text-dark);
+            text-decoration: none;
+            color: var(--text-dark);
+            background: transparent;
+            transition: all var(--transition-speed);
+        }
+
+        .page-num:hover, .page-num.active {
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+        }
+
+        /* ==========================================
+           6. DEVICE RESPONSIVENESS MEDIA ADJUSTMENTS
+           ========================================== */
+        @media (max-width: 850px) {
+            .personal-space-blob { padding: 2rem; border-radius: 4px 40px 4px 40px; }
+            .radar-split-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .blog-post-card { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.5rem; }
+            .blog-image-side { height: 180px; order: -1; } /* Pushes asset snapshot above text on phone layouts */
+            .main-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+        
+        <nav class="back-nav">
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Main Hub</a>
+        </nav>
+
+        <header class="main-header">
+            <h1 class="main-title">DIXIT</h1>
+        </header>
+
+        <main class="personal-space-blob">
+            
+            <div>
+                <h2 class="space-section-title">Current Media Consumption</h2>
+                <div class="radar-split-grid">
+                    
+                    <article class="radar-card">
+                        <div class="radar-cover-frame">
+                            <img src="assets/movie-cover.webp" alt="Latest Movie Poster" loading="lazy" width="100" height="145">
+                        </div>
+                        <div class="radar-details">
+                            <div>
+                                <h3 class="item-title">Interstellar</h3>
+                                <p class="item-sub">Released: 2014</p>
+                            </div>
+                            
+                            <div class="score-badge score-1">Must watch! Brilliant!</div>
+                        </div>
+                    </article>
+
+                    <article class="radar-card">
+                        <div class="radar-cover-frame">
+                            <img src="assets/book-cover.webp" alt="Latest Book Cover" loading="lazy" width="100" height="145">
+                        </div>
+                        <div class="radar-details">
+                            <div>
+                                <h3 class="item-title">Atomic Habits</h3>
+                                <p class="item-sub">By James Clear</p>
+                            </div>
+                            
+                            <div class="status-flag">
+                                <i class="fa-solid fa-book-open"></i> Status: Reading
+                                </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <div>
+                <h2 class="space-section-title">Sacred Writes & Journal Entries</h2>
+                <div class="blog-stream">
+                    
+                    <article class="blog-post-card">
+                        <div class="blog-text-side">
+                            <h3 class="blog-title">The Operational Architecture of Clean Code</h3>
+                            <p class="blog-excerpt">
+                                Much like an efficient spreadsheet reporting matrix, clean layout components must rely on clear global variable hierarchies. In this entry, I break down why treating design styles as strict functional modules lowers long-term system execution latency...
+                            </p>
+                            <a href="blog-post-1.html" class="btn-read-more">Read Full Entry <i class="fa-solid fa-arrow-right-long"></i></a>
+                            
+                            <div class="blog-share-footer">
+                                <span><i class="fa-solid fa-share-nodes"></i> Share entry:</span>
+                                <div class="share-links-wrapper">
+                                    <a href="https://twitter.com/intent/tweet?url=YOUR_URL_HERE" target="_blank" class="share-btn" title="Share to X"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=YOUR_URL_HERE" target="_blank" class="share-btn" title="Share to LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="mailto:?subject=Read this blog&body=Check out this entry: YOUR_URL_HERE" class="share-btn" title="Share via Email"><i class="fa-solid fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-image-side">
+                            <img src="assets/blog-post-1.webp" alt="Blog Illustration Graphics" loading="lazy" width="220" height="150">
+                        </div>
+                    </article>
+
+                </div>
+
+                <nav class="pagination-container" aria-label="Blog stream navigation">
+                    <a href="#" class="page-num active">1</a>
+                    <a href="#" class="page-num">2</a>
+                    <a href="#" class="page-num">3</a>
+                    <a href="#" class="page-num" title="Next Page">&raquo;</a>
+                </nav>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

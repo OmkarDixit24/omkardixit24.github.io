@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omkar Dixit | Portfolio Hub</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A3C1AD'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23F0EFEA'/%3E%3C/svg%3E">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* INHERITED DESIGN SYSTEM CONSTANTS */
+        :root {
+            --bg-color: #F0EFEA;       /* Warm Off-White */
+            --blob-color: #A3C1AD;     /* Corporate Sage Green */
+            --text-dark: #2A2A2A;      /* Deep Soft Charcoal */
+            --text-light: #FFFFFF;     /* Pure White Accent */
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --max-width: 1150px;
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 3rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hub-layout {
+            width: 100%;
+            max-width: var(--max-width);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* LEFT BRAND ARCHITECTURE */
+        .brand-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* PROFILE PIC AND CORE IDENTITY HERO ROW */
+        .hero-identity-block {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Compressed & Optimized Photo Container */
+        .profile-photo-frame {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--text-dark);
+            background-color: var(--blob-color);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .profile-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(15%);
+            transition: filter var(--transition-speed);
+        }
+
+        .profile-photo-frame:hover img {
+            filter: grayscale(0%);
+        }
+
+        .identity-text-holder {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .brand-identity {
+            font-family: var(--font-header);
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle {
+            font-family: var(--font-header);
+            font-size: 1.05rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+            border-left: 3px solid var(--blob-color);
+            padding-left: 0.8rem;
+        }
+
+        .brand-narrative {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 550px;
+        }
+
+        .meta-context-row {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* LET'S CONNECT COMPONENT BUTTONS */
+        .connect-strip {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-connect {
+            font-family: var(--font-header);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--text-dark);
+            background: transparent;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-connect:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+        }
+
+        /* RIGHT NAVIGATIONAL SAGE BLOB */
+        .interactive-blob-panel {
+            background-color: var(--blob-color);
+            border-radius: 120px 4px 120px 4px;
+            padding: 4.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-header);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all var(--transition-speed);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--text-dark);
+            transition: width var(--transition-speed);
+        }
+
+        .nav-link:hover {
+            color: var(--text-light);
+            padding-left: 0.5rem;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            background-color: var(--text-light);
+        }
+
+        /* SUMMARY TRACK MATRICES */
+        .summary-dashboard {
+            margin-top: 2rem;
+            border-top: 1px solid rgba(42, 42, 42, 0.15);
+            padding-top: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .summary-group-title {
+            font-family: var(--font-header);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+            color: rgba(42, 42, 42, 0.6);
+        }
+
+        .summary-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .summary-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-list i {
+            width: 16px;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* DEVICE BREAKPOINT LAYOUT ADAPTATIONS */
+        @media (max-width: 950px) {
+            body { padding: 2rem 1rem; }
+            .hub-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-identity-block { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+            .brand-identity { font-size: 2.2rem; }
+            .interactive-blob-panel { padding: 2.5rem; border-radius: 60px 4px 60px 4px; }
+            .nav-link { font-size: 1.2rem; }
+            .summary-dashboard { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hub-layout">
+        
+        <main class="brand-panel">
+            
+            <div class="hero-identity-block">
+                <div class="profile-photo-frame">
+                    <img src="assets/avatar.webp" alt="Omkar Dixit Portrait Picture" loading="eager" width="120" height="120">
+                </div>
+                <div class="identity-text-holder">
+                    <h1 class="brand-identity">Omkar Dixit</h1>
+                    <p class="brand-subtitle">Data Visualization, MIS, & Business Analysis</p>
+                </div>
+            </div>
+            
+            <p class="brand-narrative">
+                Converting scattered daily workflows and multi-source worksheets into clean, structured tracking layers to ensure data integrity, deadline compliance, and process adherence.
+            </p>
+            
+            <div class="meta-context-row">
+                <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Nanded / Pune, MH</span>
+                <span class="meta-item"><i class="fa-solid fa-circle-check"></i> Open to Opportunities</span>
+            </div>
+
+            <div class="connect-strip">
+                <a href="mailto:omkardixit2@gmail.com" class="btn-connect"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                <a href="https://linkedin.com" target="_blank" class="btn-connect"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+
+            <section class="summary-dashboard">
+                <div>
+                    <h3 class="summary-group-title">Core Operations Stack</h3>
+                    <ul class="summary-list">
+                        <li><i class="fa-solid fa-file-excel"></i> Microsoft Excel (Advanced Tracking)</li>
+                        <li><i class="fa-solid fa-table"></i> Google Sheets Ecosystem</li>
+                        <li><i class="fa-solid fa-database"></i> Structured SQL Queries</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="summary-group-title">Target Sectors</h3>
+                    <ul class="summary-list">
+                        <li><i class="fa-solid fa-industry"></i> Manufacturing & Supply Chain</li>
+                        <li><i class="fa-solid fa-car"></i> Automobile Logistics</li>
+                        <li><i class="fa-solid fa-clapperboard"></i> Media & Entertainment Operations</li>
+                        <li><i class="fa-solid fa-building-columns"></i> Banking & Retail Operations</li>
+                    </ul>
+                </div>
+
+                <div style="grid-column: 1 / -1; margin-top: -0.5rem;">
+                    <h3 class="summary-group-title">Execution Competencies</h3>
+                    <ul class="summary-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.5rem;">
+                        <li><i class="fa-solid fa-calculator"></i> Numerical Accuracy</li>
+                        <li><i class="fa-solid fa-boxes-stacked"></i> Record-Keeping</li>
+                        <li><i class="fa-solid fa-clipboard-check"></i> Process Discipline</li>
+                        <li><i class="fa-solid fa-comments"></i> Stakeholder Coordination</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <nav class="interactive-blob-panel" aria-label="Main Portfolio Navigation">
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link"><i class="fa-solid fa-user-ninja"></i> About Me</a></li>
+                <li><a href="projects.html" class="nav-link"><i class="fa-solid fa-chart-pie"></i> Projects & Systems</a></li>
+                <li><a href="resume.html" class="nav-link"><i class="fa-solid fa-file-invoice"></i> CV & Qualifications</a></li>
+                <li><a href="reads-writes.html" class="nav-link"><i class="fa-solid fa-feather-pointed"></i> Reads & Writes</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+</body>
+</html>
