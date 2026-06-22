@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reads & Writes - Page 2 | Omkar Dixit Portfolio</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A3C1AD'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23F0EFEA'/%3E%3C/svg%3E">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* INHERITED TOKENS FOR 100% ECOSYSTEM VISUAL SAMENESS */
+        :root {
+            --bg-color: #F0EFEA;
+            --blob-color: #A3C1AD;
+            --text-dark: #2A2A2A;
+            --text-light: #FFFFFF;
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --max-width: 1050px;
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .back-nav {
+            margin-bottom: -1rem;
+        }
+        
+        .back-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed);
+        }
+        
+        .back-link:hover { opacity: 1; }
+
+        .main-header { text-align: center; }
+        .main-title {
+            font-family: var(--font-header);
+            font-size: 2.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* STRUCTURAL CONTAINER CONTAINER BLOB */
+        .content-container-blob {
+            background-color: var(--blob-color);
+            border-radius: 80px 4px 80px 4px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .section-title {
+            font-family: var(--font-header);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--text-dark);
+            padding-bottom: 0.4rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-action-outline {
+            font-family: var(--font-header);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--text-dark);
+            background: transparent;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-action-outline:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+        }
+
+        /* JOURNAL ESSAYS FRAMEWORKS */
+        .journal-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .journal-entry-card {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(42, 42, 42, 0.15);
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .journal-image-frame {
+            width: 100%;
+            height: 120px;
+            background-color: rgba(42, 42, 42, 0.05);
+            border: 1px dashed rgba(42, 42, 42, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .journal-image-frame i {
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .journal-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .entry-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.1);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-title {
+            font-family: var(--font-header);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .entry-date {
+            font-family: var(--font-header);
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .journal-content p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 0.5rem;
+        }
+
+        /* PAGINATION STYLING */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(42, 42, 42, 0.15);
+        }
+
+        .page-node {
+            font-family: var(--font-header);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid transparent;
+            transition: all var(--transition-speed);
+        }
+
+        .page-node.active {
+            border: 1px solid var(--text-dark);
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+        }
+
+        .page-node:hover:not(.active) {
+            border: 1px solid var(--text-dark);
+        }
+
+        .page-dots {
+            font-family: var(--font-header);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0 0.2rem;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 850px) {
+            .content-container-blob { padding: 2rem; border-radius: 40px 4px 40px 4px; }
+            .journal-entry-card { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.5rem; }
+            .journal-image-frame { height: 140px; }
+            .main-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+        
+        <nav class="back-nav">
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Main Hub</a>
+        </nav>
+
+        <header class="main-header">
+            <h1 class="main-title">Omkar Dixit</h1>
+        </header>
+
+        <main class="content-container-blob">
+            
+            <div>
+                <h2 class="section-title">Journal Logs & Essays - Page 2</h2>
+                <div class="journal-stack">
+                    
+                    <article class="journal-entry-card">
+                        <div class="journal-image-frame">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="journal-content">
+                            <div class="entry-header-row">
+                                <h3 class="entry-title">The Envy Machine: Instagram's Algorithmic Trap</h3>
+                                <span class="entry-date">April 2026</span>
+                            </div>
+                            <p>
+                                By structural design, social networks monetize attention, but Instagram specifically scales mimetic desire. It converts real-world, localized milestones into highly curated transactional aesthetics, triggering subconscious comparisons. This piece deconstructs how algorithmic distribution channels profit off human anxiety loops.
+                            </p>
+                            <a href="essay-envy-machine.html" class="btn-action-outline">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <nav class="pagination-container" aria-label="Journal Page Navigation">
+                        <a href="reads-writes.html" class="page-node">1</a>
+                        <a href="reads-writes-2.html" class="page-node active" aria-current="page">2</a>
+                        <a href="#" class="page-node">3</a>
+                        <span class="page-dots">...</span>
+                        <a href="#" class="page-node" aria-label="Next Page">></a>
+                    </nav>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
