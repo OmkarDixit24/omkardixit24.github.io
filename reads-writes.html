@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reads & Writes | Dixit Portfolio</title>
+    <title>Reads & Writes | Omkar Dixit Portfolio</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A3C1AD'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23F0EFEA'/%3E%3C/svg%3E">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,26 +14,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ==========================================
-           1. INHERITED DESIGN TOKENS (VISUAL UNIFORMITY)
-           ========================================== */
+        /* INHERITED TOKENS FOR UNIFIED ECOSYSTEM DESIGN */
         :root {
             --bg-color: #F0EFEA;       /* Warm Off-White */
-            --blob-color: #A3C1AD;     /* Sage Green Primary Container */
-            --text-dark: #2A2A2A;      /* Corporate Soft Charcoal */
-            --text-light: #FFFFFF;     /* White accents */
+            --blob-color: #A3C1AD;     /* Corporate Sage Green */
+            --text-dark: #2A2A2A;      /* Deep Soft Charcoal */
+            --text-light: #FFFFFF;     /* Pure White Accent */
             --font-header: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
-            --max-width: 1000px;
+            --max-width: 1050px;
             --transition-speed: 0.3s ease;
-            
-            /* Custom Score Token Tints for Media Tracker */
-            --score-brilliant: #CBDCD0;
-            --score-good: #E2E1DC;
-            --score-waste: #EAA8A8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--bg-color);
@@ -53,8 +52,10 @@
             gap: 2rem;
         }
 
-        /* Standard Back Button Link */
-        .back-nav { margin-bottom: -1rem; }
+        .back-nav {
+            margin-bottom: -1rem;
+        }
+        
         .back-link {
             font-family: var(--font-body);
             font-size: 0.95rem;
@@ -65,7 +66,9 @@
             align-items: center;
             gap: 0.5rem;
             opacity: 0.7;
+            transition: opacity var(--transition-speed);
         }
+        
         .back-link:hover { opacity: 1; }
 
         .main-header { text-align: center; }
@@ -77,12 +80,10 @@
             text-transform: uppercase;
         }
 
-        /* ==========================================
-           2. MAIN CONTAINER LAYER (SAGE BLOB CONFIGURATION)
-           ========================================== */
-        .personal-space-blob {
+        /* CORE EXPERIENCE STRUCTURAL CONTAINER (SAGE BLOB) */
+        .content-container-blob {
             background-color: var(--blob-color);
-            border-radius: 4px 80px 4px 80px;
+            border-radius: 80px 4px 80px 4px;
             padding: 3.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             display: flex;
@@ -90,231 +91,174 @@
             gap: 3rem;
         }
 
-        .space-section-title {
+        .section-title {
             font-family: var(--font-header);
             font-size: 1.4rem;
-            font-weight: 700;
+            font-weight: 400;
+            color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             border-bottom: 2px solid var(--text-dark);
             padding-bottom: 0.4rem;
-            color: var(--text-dark);
+            display: inline-block;
             margin-bottom: 1.5rem;
         }
 
-        /* ==========================================
-           3. CONSUMING MEDIA RADAR (MOVIES & BOOKS)
-           ========================================== */
-        .radar-split-grid {
+        /* DUAL CARDS TRACKING SYSTEM GRID */
+        .tracking-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
-        .radar-card {
+        .media-card {
             background-color: var(--bg-color);
             border: 1px solid rgba(42, 42, 42, 0.15);
             padding: 1.5rem;
-            display: grid;
-            grid-template-columns: 100px 1fr;
+            display: flex;
             gap: 1.2rem;
-            align-items: start;
+            align-items: flex-start;
         }
 
-        .radar-cover-frame {
-            width: 100px;
-            height: 145px;
-            background-color: #E2E1DC;
-            border: 1fr solid rgba(42,42,42,0.1);
+        /* Cover Art Placeholder Box Frame */
+        .media-cover-frame {
+            width: 85px;
+            height: 125px;
+            background-color: rgba(42, 42, 42, 0.08);
+            border: 1px dashed rgba(42, 42, 42, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
             overflow: hidden;
         }
 
-        .radar-cover-frame img {
+        .media-cover-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .radar-details {
+        .media-cover-frame i {
+            font-size: 1.8rem;
+            opacity: 0.4;
+        }
+
+        .media-info {
             display: flex;
             flex-direction: column;
-            height: 100%;
-            justify-content: space-between;
+            gap: 0.3rem;
+            width: 100%;
         }
 
-        .item-title {
-            font-family: var(--font-header);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .item-sub {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-top: 0.2rem;
-        }
-
-        /* Interactive Movie Score Badges */
-        .score-badge {
+        .status-badge {
             font-family: var(--font-header);
             font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            padding: 0.4rem 0.6rem;
-            border: 1px solid var(--text-dark);
-            display: inline-block;
-            margin-top: auto;
-            text-align: center;
-        }
-        .score-1 { background-color: var(--score-brilliant); }
-        .score-2 { background-color: var(--score-good); }
-        .score-3 { background-color: var(--score-waste); }
-
-        /* Book Status Flags */
-        .status-flag {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            font-weight: 600;
-            font-style: italic;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            margin-top: auto;
+            color: var(--text-light);
+            background-color: var(--text-dark);
+            padding: 0.15rem 0.5rem;
+            align-self: flex-start;
+            margin-bottom: 0.2rem;
         }
 
-        /* ==========================================
-           4. WRITES / SACRED BLOG ARCHITECTURE
-           ========================================== */
-        .blog-stream {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .status-badge.reading {
+            background-color: #5c7c6c; /* Muted contrast green */
         }
 
-        .blog-post-card {
-            background-color: var(--bg-color);
-            border: 1px solid rgba(42, 42, 42, 0.15);
-            padding: 2.5rem;
-            display: grid;
-            grid-template-columns: 1fr 220px;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .blog-text-side {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .blog-title {
+        .media-name {
             font-family: var(--font-header);
-            font-size: 1.4rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            text-transform: uppercase;
+            line-height: 1.3;
         }
 
-        .blog-excerpt {
-            font-size: 0.95rem;
-            opacity: 0.85;
-            line-height: 1.6;
-        }
-
-        .blog-image-side {
-            width: 100%;
-            height: 150px;
-            background-color: #E2E1DC;
-            overflow: hidden;
-            border: 1px solid rgba(42,42,42,0.1);
-        }
-
-        .blog-image-side img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Read More Link layout rules */
-        .btn-read-more {
-            font-family: var(--font-header);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            display: inline-block;
-            margin-top: 0.5rem;
-            transition: opacity var(--transition-speed);
-        }
-        .btn-read-more:hover { opacity: 0.6; }
-
-        /* Social Share Row */
-        .blog-share-footer {
-            border-top: 1px solid rgba(42, 42, 42, 0.1);
-            padding-top: 0.8rem;
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .media-author {
             font-size: 0.85rem;
             opacity: 0.8;
+            font-weight: 600;
         }
 
-        .share-links-wrapper {
-            display: flex;
-            gap: 0.8rem;
+        .star-rating {
+            color: #d4af37; /* Clean operational dark gold */
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
         }
 
-        .share-btn {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: opacity var(--transition-speed);
-        }
-        .share-btn:hover { opacity: 0.5; }
-
-        /* ==========================================
-           5. THE PAGINATION SYSTEM HACK
-           ========================================== */
-        .pagination-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .page-num {
+        /* OUTLINE REVIEW BUTTON COMPONENT */
+        .btn-review-trigger {
             font-family: var(--font-header);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.4rem 0.8rem;
             border: 1px solid var(--text-dark);
-            text-decoration: none;
-            color: var(--text-dark);
             background: transparent;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+            align-self: flex-start;
             transition: all var(--transition-speed);
         }
 
-        .page-num:hover, .page-num.active {
+        .btn-review-trigger:hover {
             background-color: var(--text-dark);
             color: var(--bg-color);
         }
 
-        /* ==========================================
-           6. DEVICE RESPONSIVENESS MEDIA ADJUSTMENTS
-           ========================================== */
+        /* CHRONOLOGICAL JOURNAL STRUCTURE */
+        .journal-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .journal-entry-card {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(42, 42, 42, 0.15);
+            padding: 2rem;
+        }
+
+        .entry-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.1);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .entry-title {
+            font-family: var(--font-header);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .entry-date {
+            font-family: var(--font-header);
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .journal-entry-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* RESPONSIVE LAYOUT ADJUSTMENTS */
         @media (max-width: 850px) {
-            .personal-space-blob { padding: 2rem; border-radius: 4px 40px 4px 40px; }
-            .radar-split-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .blog-post-card { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.5rem; }
-            .blog-image-side { height: 180px; order: -1; } /* Pushes asset snapshot above text on phone layouts */
+            .content-container-blob { padding: 2rem; border-radius: 40px 4px 40px 4px; }
+            .tracking-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .journal-entry-card { padding: 1.5rem; }
             .main-title { font-size: 2rem; }
         }
     </style>
@@ -328,83 +272,91 @@
         </nav>
 
         <header class="main-header">
-            <h1 class="main-title">DIXIT</h1>
+            <h1 class="main-title">Omkar Dixit</h1>
         </header>
 
-        <main class="personal-space-blob">
+        <main class="content-container-blob">
             
             <div>
-                <h2 class="space-section-title">Current Media Consumption</h2>
-                <div class="radar-split-grid">
+                <h2 class="section-title">Reading Dashboard</h2>
+                <div class="tracking-grid">
                     
-                    <article class="radar-card">
-                        <div class="radar-cover-frame">
-                            <img src="assets/movie-cover.webp" alt="Latest Movie Poster" loading="lazy" width="100" height="145">
+                    <div class="media-card">
+                        <div class="media-cover-frame">
+                            <i class="fa-solid fa-book-open"></i>
                         </div>
-                        <div class="radar-details">
-                            <div>
-                                <h3 class="item-title">Interstellar</h3>
-                                <p class="item-sub">Released: 2014</p>
+                        <div class="media-info">
+                            <span class="status-badge reading">Currently Reading</span>
+                            <h3 class="media-name">The Joy of X</h3>
+                            <p class="media-author">Steven Strogatz</p>
+                            <div class="star-rating">
+                                <i class="fa-regular fa-star"></i> Pending Completion
                             </div>
-                            
-                            <div class="score-badge score-1">Must watch! Brilliant!</div>
                         </div>
-                    </article>
+                    </div>
 
-                    <article class="radar-card">
-                        <div class="radar-cover-frame">
-                            <img src="assets/book-cover.webp" alt="Latest Book Cover" loading="lazy" width="100" height="145">
+                    <div class="media-card">
+                        <div class="media-cover-frame">
+                            <i class="fa-solid fa-book"></i>
                         </div>
-                        <div class="radar-details">
-                            <div>
-                                <h3 class="item-title">Atomic Habits</h3>
-                                <p class="item-sub">By James Clear</p>
+                        <div class="media-info">
+                            <span class="status-badge">Completed</span>
+                            <h3 class="media-name">Storytelling with Data</h3>
+                            <p class="media-author">Cole Nussbaumer Knaflic</p>
+                            <div class="star-rating">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            
-                            <div class="status-flag">
-                                <i class="fa-solid fa-book-open"></i> Status: Reading
-                                </div>
                         </div>
-                    </article>
+                    </div>
 
                 </div>
             </div>
 
             <div>
-                <h2 class="space-section-title">Sacred Writes & Journal Entries</h2>
-                <div class="blog-stream">
+                <h2 class="section-title">Screen Tracking</h2>
+                <div class="tracking-grid">
                     
-                    <article class="blog-post-card">
-                        <div class="blog-text-side">
-                            <h3 class="blog-title">The Operational Architecture of Clean Code</h3>
-                            <p class="blog-excerpt">
-                                Much like an efficient spreadsheet reporting matrix, clean layout components must rely on clear global variable hierarchies. In this entry, I break down why treating design styles as strict functional modules lowers long-term system execution latency...
-                            </p>
-                            <a href="blog-post-1.html" class="btn-read-more">Read Full Entry <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <div class="media-card" style="grid-column: 1 / -1;">
+                        <div class="media-cover-frame" style="height: 110px;">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="media-info">
+                            <span class="status-badge" style="background-color: #6a7ba2;">Watchlist Log</span>
+                            <h3 class="media-name">Zootopia 2</h3>
+                            <p class="media-author">Walt Disney Animation Studios</p>
                             
-                            <div class="blog-share-footer">
-                                <span><i class="fa-solid fa-share-nodes"></i> Share entry:</span>
-                                <div class="share-links-wrapper">
-                                    <a href="https://twitter.com/intent/tweet?url=YOUR_URL_HERE" target="_blank" class="share-btn" title="Share to X"><i class="fa-brands fa-x-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=YOUR_URL_HERE" target="_blank" class="share-btn" title="Share to LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="mailto:?subject=Read this blog&body=Check out this entry: YOUR_URL_HERE" class="share-btn" title="Share via Email"><i class="fa-solid fa-envelope"></i></a>
-                                </div>
-                            </div>
+                            <a href="#" class="btn-review-trigger"><i class="fa-solid fa-pen-nib"></i> Read Log Review</a>
                         </div>
-                        <div class="blog-image-side">
-                            <img src="assets/blog-post-1.webp" alt="Blog Illustration Graphics" loading="lazy" width="220" height="150">
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-title">Journal Logs & Essays</h2>
+                <div class="journal-stack">
+                    
+                    <article class="journal-entry-card">
+                        <div class="entry-header-row">
+                            <h3 class="entry-title">Structuring the Logic Flow</h3>
+                            <span class="entry-date">June 2026</span>
                         </div>
+                        <p>
+                            Transitioning unstructured input streams into structured execution layers is more than a technical problem—it's a process discipline habit. True database and operations optimization doesn't stem from over-engineered algorithms, but from creating predictable tracking patterns that adjacent teams can easily use.
+                        </p>
+                    </article>
+
+                    <article class="journal-entry-card">
+                        <div class="entry-header-row">
+                            <h3 class="entry-title">The Operational Clarity Grid</h3>
+                            <span class="entry-date">May 2026</span>
+                        </div>
+                        <p>
+                            A quick observation on spreadsheet architectures: the moment a report requires human copy-pasting across parallel tracking sheets, system vulnerability spikes. Designing upfront validation barriers and structured logic queries preserves information sanity over multi-source operations loops.
+                        </p>
                     </article>
 
                 </div>
-
-                <nav class="pagination-container" aria-label="Blog stream navigation">
-                    <a href="#" class="page-num active">1</a>
-                    <a href="#" class="page-num">2</a>
-                    <a href="#" class="page-num">3</a>
-                    <a href="#" class="page-num" title="Next Page">&raquo;</a>
-                </nav>
-
             </div>
 
         </main>
