@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Dixit Portfolio</title>
+    <title>About Me | Omkar Dixit Portfolio</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A3C1AD'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23F0EFEA'/%3E%3C/svg%3E">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +15,7 @@
 
     <style>
         /* ==========================================
-           1. INHERITED DESIGN TOKENS (100% VISUAL SAMENESS)
+           INHERITED DESIGN TOKENS (100% VISUAL SAMENESS)
            ========================================== */
         :root {
             --bg-color: #F0EFEA;       /* Warm Off-White */
@@ -87,7 +89,7 @@
         }
 
         /* ==========================================
-           2. UNIFIED MAIN CONTAINER (SAGE BLOB)
+           UNIFIED MAIN CONTAINER (SAGE BLOB)
            ========================================== */
         .about-container-blob {
             background-color: var(--blob-color);
@@ -131,11 +133,11 @@
         }
 
         /* ==========================================
-           3. CORE PRINCIPLES GRID (HOW I WORK)
+           CORE PRINCIPLES GRID (HOW I WORK)
            ========================================== */
         .principles-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr); /* Balanced 2x2 grid structure */
             gap: 1.5rem;
             margin-top: 1rem;
         }
@@ -169,7 +171,7 @@
         }
 
         /* ==========================================
-           4. RESPONSIVE LAYOUT MEDIA CONTROLS
+           RESPONSIVE LAYOUT MEDIA CONTROLS
            ========================================== */
         @media (max-width: 768px) {
             .about-container-blob {
@@ -180,7 +182,7 @@
                 padding: 1.5rem;
             }
             .principles-grid {
-                grid-template-columns: 1fr; /* Stacks column cards perfectly vertically on mobile screen ratios */
+                grid-template-columns: 1fr; /* Perfect single column stacking on mobile views */
                 gap: 1rem;
             }
             .main-title {
@@ -198,7 +200,7 @@
         </nav>
 
         <header class="main-header">
-            <h1 class="main-title">DIXIT</h1>
+            <h1 class="main-title">Omkar Dixit</h1>
         </header>
 
         <main class="about-container-blob">
@@ -208,13 +210,13 @@
                 
                 <div class="profile-narrative-card">
                     <p>
-                        I am a disciplined and process-driven professional focused on bridging the gap between raw data streams and everyday business operations. With a background structured around operational coordination, meticulous record-keeping, and stakeholder communication, I specialize in transforming disorganized corporate inputs into clear, actionable tracking mechanisms.
+                        I am a process-focused professional specializing in structural data organization, operational coordination, and analytical tracking. My core background centers on bridging communication gaps and building reliable internal tracking frameworks —ensuring data is organized, protocols are followed, and operations run efficiently.
                     </p>
                     <p>
-                        My professional philosophy centers around strict information integrity and accuracy. Whether managing complex client documentation schedules or organizing comprehensive relational tracking frameworks, I aim to optimize workflows and reduce communication lag.
+                        Throughout my professional experience, I have specialized in turning unorganized, fluid inputs into clear, step-by-step execution frameworks. Whether maintaining precise operational tracking reports in Microsoft Excel , managing end-to-end documentation streams across parallel tracks , or ensuring strict quality controls for client-facing milestones, I prioritize information accuracy and absolute system integrity.
                     </p>
                     <p>
-                        Beyond data analysis, I invest my free time analyzing digital media trends, reviewing literature, and exploring streamlined design systems. I thrive in structured environments that require consistent attention to detail, proactive task ownership, and clear accountability.
+                        Equipped with a solid foundational background in Computer Science, my goal is to step into an operational domain where process discipline and precision are critical. I look to leverage my tracking and data-handling habits to build clean reporting visibility, manage core datasets, and provide trustworthy, clear analytical support across teams.
                     </p>
                 </div>
             </div>
@@ -224,21 +226,27 @@
                 <div class="principles-grid">
                     
                     <div class="principle-box">
-                        <i class="fa-solid fa-bullseye principle-icon"></i>
-                        <h3 class="principle-title">Process Discipline</h3>
-                        <p class="principle-desc">Adhering strictly to compliance models and standardized workflows to eliminate system errors.</p>
+                        <i class="fa-solid fa-square-check principle-icon"></i>
+                        <h3 class="principle-title">Information Integrity</h3>
+                        <p class="principle-desc">Maintaining flawless logs, clean structured data entries, and rigorous validation checks across spreadsheet systems.</p>
                     </div>
 
                     <div class="principle-box">
-                        <i class="fa-solid fa-arrow-down-1-9 principle-icon"></i>
-                        <h3 class="principle-title">Numerical Accuracy</h3>
-                        <p class="principle-desc">Maintaining flawless data logging and database sanity checks for reliable executive reporting.</p>
+                        <i class="fa-solid fa-timeline principle-icon"></i>
+                        <h3 class="principle-title">Delivery Accountability</h3>
+                        <p class="principle-desc">Taking absolute ownership over tracking deadlines, internal project pipelines, and quality control requirements.</p>
                     </div>
 
                     <div class="principle-box">
-                        <i class="fa-solid fa-handshake principle-icon"></i>
+                        <i class="fa-solid fa-arrow-turn-down principle-icon"></i>
+                        <h3 class="principle-title">Streamlining Complex Inputs</h3>
+                        <p class="principle-desc">Synthesizing highly unstructured operational requests into organized, actionable execution blueprints.</p>
+                    </div>
+
+                    <div class="principle-box">
+                        <i class="fa-solid fa-network-wired principle-icon"></i>
                         <h3 class="principle-title">Stakeholder Trust</h3>
-                        <p class="principle-desc">Providing clear, professional, and reliable communication across multi-disciplinary teams.</p>
+                        <p class="principle-desc">Acting as a reliable communication anchor between corporate management and technical teams with clear coordination.</p>
                     </div>
 
                 </div>
