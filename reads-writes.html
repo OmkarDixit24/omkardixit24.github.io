@@ -80,7 +80,7 @@
             text-transform: uppercase;
         }
 
-        /* CORE EXPERIENCE STRUCTURAL CONTAINER (SAGE BLOB) */
+        /* CORE CONTAINER (SAGE BLOB) */
         .content-container-blob {
             background-color: var(--blob-color);
             border-radius: 80px 4px 80px 4px;
@@ -104,7 +104,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* DUAL CARDS TRACKING SYSTEM GRID */
+        /* TRACKING GRID ARCHITECTURE */
         .tracking-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -120,7 +120,6 @@
             align-items: flex-start;
         }
 
-        /* Cover Art Placeholder Box Frame */
         .media-cover-frame {
             width: 85px;
             height: 125px;
@@ -131,12 +130,6 @@
             align-items: center;
             flex-shrink: 0;
             overflow: hidden;
-        }
-
-        .media-cover-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .media-cover-frame i {
@@ -164,9 +157,7 @@
             margin-bottom: 0.2rem;
         }
 
-        .status-badge.reading {
-            background-color: #5c7c6c; /* Muted contrast green */
-        }
+        .status-badge.reading { background-color: #5c7c6c; }
 
         .media-name {
             font-family: var(--font-header);
@@ -182,13 +173,13 @@
         }
 
         .star-rating {
-            color: #d4af37; /* Clean operational dark gold */
+            color: #d4af37;
             font-size: 0.8rem;
             margin-top: 0.2rem;
         }
 
-        /* OUTLINE REVIEW BUTTON COMPONENT */
-        .btn-review-trigger {
+        /* INTERACTIVE OUTLINE BUTTON SYSTEM */
+        .btn-action-outline {
             font-family: var(--font-header);
             font-size: 0.75rem;
             font-weight: 700;
@@ -207,22 +198,54 @@
             transition: all var(--transition-speed);
         }
 
-        .btn-review-trigger:hover {
+        .btn-action-outline:hover {
             background-color: var(--text-dark);
             color: var(--bg-color);
         }
 
-        /* CHRONOLOGICAL JOURNAL STRUCTURE */
+        /* RICH JOURNAL ARCHITECTURE */
         .journal-stack {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .journal-entry-card {
             background-color: var(--bg-color);
             border: 1px solid rgba(42, 42, 42, 0.15);
             padding: 2rem;
+            display: grid;
+            grid-template-columns: 180px 1fr; /* Space dedicated for accompanying card image */
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .journal-image-frame {
+            width: 100%;
+            height: 120px;
+            background-color: rgba(42, 42, 42, 0.05);
+            border: 1px dashed rgba(42, 42, 42, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .journal-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .journal-image-frame i {
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .journal-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .entry-header-row {
@@ -231,7 +254,7 @@
             align-items: baseline;
             border-bottom: 1px solid rgba(42, 42, 42, 0.1);
             padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .entry-title {
@@ -249,16 +272,63 @@
             text-transform: uppercase;
         }
 
-        .journal-entry-card p {
+        .journal-content p {
             font-size: 0.95rem;
             opacity: 0.85;
+            margin-bottom: 0.5rem;
         }
 
-        /* RESPONSIVE LAYOUT ADJUSTMENTS */
+        /* MINIMALIST PAGINATION COMPONENT */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(42, 42, 42, 0.15);
+        }
+
+        .page-node {
+            font-family: var(--font-header);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid transparent;
+            transition: all var(--transition-speed);
+        }
+
+        .page-node.active {
+            border: 1px solid var(--text-dark);
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+        }
+
+        .page-node:hover:not(.active) {
+            border: 1px solid var(--text-dark);
+        }
+
+        .page-dots {
+            font-family: var(--font-header);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0 0.2rem;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+        }
+
+        /* DEVICE BREAKPOINT LAYOUT ADAPTATIONS */
         @media (max-width: 850px) {
             .content-container-blob { padding: 2rem; border-radius: 40px 4px 40px 4px; }
             .tracking-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .journal-entry-card { padding: 1.5rem; }
+            .journal-entry-card { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.5rem; }
+            .journal-image-frame { height: 140px; }
             .main-title { font-size: 2rem; }
         }
     </style>
@@ -324,8 +394,7 @@
                             <span class="status-badge" style="background-color: #6a7ba2;">Watchlist Log</span>
                             <h3 class="media-name">Zootopia 2</h3>
                             <p class="media-author">Walt Disney Animation Studios</p>
-                            
-                            <a href="#" class="btn-review-trigger"><i class="fa-solid fa-pen-nib"></i> Read Log Review</a>
+                            <a href="#" class="btn-action-outline"><i class="fa-solid fa-pen-nib"></i> Read Log Review</a>
                         </div>
                     </div>
 
@@ -337,24 +406,44 @@
                 <div class="journal-stack">
                     
                     <article class="journal-entry-card">
-                        <div class="entry-header-row">
-                            <h3 class="entry-title">Structuring the Logic Flow</h3>
-                            <span class="entry-date">June 2026</span>
+                        <div class="journal-image-frame">
+                            <i class="fa-solid fa-arrow-route-highway"></i>
                         </div>
-                        <p>
-                            Transitioning unstructured input streams into structured execution layers is more than a technical problem—it's a process discipline habit. True database and operations optimization doesn't stem from over-engineered algorithms, but from creating predictable tracking patterns that adjacent teams can easily use.
-                        </p>
+                        <div class="journal-content">
+                            <div class="entry-header-row">
+                                <h3 class="entry-title">Structuring the Logic Flow</h3>
+                                <span class="entry-date">June 2026</span>
+                            </div>
+                            <p>
+                                Transitioning unstructured input streams into structured execution layers is more than a technical problem—it's a process discipline habit. True database and operations optimization doesn't stem from over-engineered algorithms, but from creating predictable tracking patterns that adjacent teams can easily use.
+                            </p>
+                            <a href="essay-logic-flow.html" class="btn-action-outline">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </article>
 
                     <article class="journal-entry-card">
-                        <div class="entry-header-row">
-                            <h3 class="entry-title">The Operational Clarity Grid</h3>
-                            <span class="entry-date">May 2026</span>
+                        <div class="journal-image-frame">
+                            <i class="fa-solid fa-table-cells"></i>
                         </div>
-                        <p>
-                            A quick observation on spreadsheet architectures: the moment a report requires human copy-pasting across parallel tracking sheets, system vulnerability spikes. Designing upfront validation barriers and structured logic queries preserves information sanity over multi-source operations loops.
-                        </p>
+                        <div class="journal-content">
+                            <div class="entry-header-row">
+                                <h3 class="entry-title">The Operational Clarity Grid</h3>
+                                <span class="entry-date">May 2026</span>
+                            </div>
+                            <p>
+                                A quick observation on spreadsheet architectures: the moment a report requires human copy-pasting across parallel tracking sheets, system vulnerability spikes. Designing upfront validation barriers and structured logic queries preserves information integrity over multi-source operations loops.
+                            </p>
+                            <a href="essay-operational-clarity.html" class="btn-action-outline">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </article>
+
+                    <nav class="pagination-container" aria-label="Journal Page Navigation">
+                        <a href="#" class="page-node active" aria-current="page">1</a>
+                        <a href="#" class="page-node">2</a>
+                        <a href="#" class="page-node">3</a>
+                        <span class="page-dots">...</span>
+                        <a href="#" class="page-node" aria-label="Next Page">></a>
+                    </nav>
 
                 </div>
             </div>
