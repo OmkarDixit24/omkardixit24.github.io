@@ -347,17 +347,16 @@
                     </div>
                 </article>
 
-                <!-- ==========================================
-   FIXED: INTERACTIVE DATA SCIENCE DASHBOARD
+      <!-- ==========================================
+   FIXED NOBEL CARD (NO MORE MULTIPLE LINKS)
    ========================================== -->
-<article class="project-card" onclick="window.open('YOUR_STREAMLIT_APP_URL_HERE', '_blank');">
+<article class="project-card" onclick="this.querySelector('.btn-primary-action').click();">
     <div class="card-top">
         <h3 class="project-title">Global Nobel Footprint Workspace</h3>
         <div class="domain-icon"><i class="fa-solid fa-award"></i></div>
     </div>
     
     <div class="snapshot-wrapper">
-        <!-- Live-loading premium placeholder image until you upload your own screenshot -->
         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&h=180&q=80" alt="Data Analytics Preview" loading="lazy" width="400" height="180">
     </div>
     
@@ -365,6 +364,7 @@
         An executive-level Python &amp; Streamlit data story tracking the chronological distributions, historical gaps, and citizenship migration pathways of Nobel Laureates from the Indian diaspora.
     </p>
     
+    <!-- CHANGE YOUR LINKS ONLY IN THIS SECTION BELOW -->
     <div class="card-actions" onclick="event.stopPropagation();">
         <a href="https://india-nobel-prize-dashboard-024.streamlit.app/" target="_blank" class="btn-action btn-primary-action"><i class="fa-solid fa-rocket"></i> Live App</a>
         <a href="https://github.com/OmkarDixit24/India-Nobel-Prize-Dashboard" target="_blank" class="btn-action"><i class="fa-brands fa-github"></i> Source Code</a>
