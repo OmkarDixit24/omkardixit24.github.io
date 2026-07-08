@@ -113,7 +113,6 @@
         /* ==========================================
            3. RESPONSIVE CAROUSEL-STYLE GRID
            ========================================== */
-        /* Flexbox/Grid combination that ensures items line up effortlessly on tablets, desktop, & mobile */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -292,7 +291,7 @@
 
                 <article class="project-card" onclick="window.location.href='project-details-sales.html';">
                     <div class="card-top">
-                        <h3 class="project-title">Retail Revenue Revenue Analysis</h3>
+                        <h3 class="project-title">Retail Revenue Analysis</h3>
                         <div class="domain-icon"><i class="fa-solid fa-chart-column"></i></div>
                     </div>
                     
@@ -345,6 +344,30 @@
                     
                     <div class="card-actions" onclick="event.stopPropagation();">
                         <a href="https://github.com/example" target="_blank" class="btn-action btn-primary-action"><i class="fa-solid fa-code"></i> View Queries</a>
+                    </div>
+                </article>
+
+                <!-- ==========================================
+                   NEW ADDITION: INTERACTIVE DATA SCIENCE DASHBOARD
+                   ========================================== -->
+                <article class="project-card" onclick="window.location.href='project-details-nobel.html';">
+                    <div class="card-top">
+                        <h3 class="project-title">Global Nobel Footprint Workspace</h3>
+                        <div class="domain-icon"><i class="fa-solid fa-award"></i></div>
+                    </div>
+                    
+                    <div class="snapshot-wrapper">
+                        <!-- Replace with a layout screenshot of your live app when available -->
+                        <img src="assets/nobel-dashboard.webp" alt="Streamlit Cloud Dashboard Preview" loading="lazy" width="400" height="180">
+                    </div>
+                    
+                    <p class="project-desc">
+                        An executive-level Python &amp; Streamlit data story tracking the chronological distributions, historical gaps, and citizenship migration pathways of Nobel Laureates from the Indian diaspora.
+                    </p>
+                    
+                    <div class="card-actions" onclick="event.stopPropagation();">
+                        <a href="https://india-nobel-prize-dashboard-024.streamlit.app/" target="_blank" class="btn-action btn-primary-action"><i class="fa-solid fa-rocket"></i> Live App</a>
+                        <a href="https://github.com/OmkarDixit24/India-Nobel-Prize-Dashboard" target="_blank" class="btn-action"><i class="fa-brands fa-github"></i> Source Code</a>
                     </div>
                 </article>
 
