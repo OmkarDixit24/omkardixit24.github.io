@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CHANGE ME: page title -->
+    <title>Clacker Tracker | Omkar Dixit Portfolio</title>
+
+    <!-- UNIFIED INLINE EMULATION FAVICON (same as projects.html) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A3C1AD'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23F0EFEA'/%3E%3C/svg%3E">
+
+    <!-- GLOBAL FONTS SYSTEM -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- FONTAWESOME FRAMEWORK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* INHERITED TOKENS — copied 1:1 from projects.html for visual consistency */
+        :root {
+            --bg-color: #F0EFEA;       /* Warm Off-White */
+            --blob-color: #A3C1AD;     /* Corporate Sage Green */
+            --text-dark: #2A2A2A;      /* Deep Soft Charcoal */
+            --text-light: #FFFFFF;     /* Pure White Accent */
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --max-width: 1050px;
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .back-nav {
+            margin-bottom: -1rem;
+        }
+
+        .back-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed);
+        }
+
+        .back-link:hover { opacity: 1; }
+
+        .main-header { text-align: center; }
+        .main-title {
+            font-family: var(--font-header);
+            font-size: 2.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* EXACT BLOB CONTAINER SHAPE & SHADOW */
+        .content-container-blob {
+            background-color: var(--blob-color);
+            border-radius: 80px 4px 80px 4px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* INNER BRACKETS FRAME */
+        .bracket-wrapper {
+            position: relative;
+            padding: 2rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .bracket-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0; bottom: 0; left: 0;
+            width: 18px;
+            border-left: 4px solid var(--text-light);
+            border-top: 4px solid var(--text-light);
+            border-bottom: 4px solid var(--text-light);
+            pointer-events: none;
+        }
+
+        .bracket-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0; bottom: 0; right: 0;
+            width: 18px;
+            border-right: 4px solid var(--text-light);
+            border-top: 4px solid var(--text-light);
+            border-bottom: 4px solid var(--text-light);
+            pointer-events: none;
+        }
+
+        /* PROJECT DETAIL BLOCK */
+        .project-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-title {
+            font-family: var(--font-header);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 0.02em;
+        }
+
+        .project-description {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.75;
+            max-width: 68ch;
+        }
+
+        .stream-divider {
+            height: 1px;
+            background-color: rgba(42, 42, 42, 0.2);
+            width: 100%;
+        }
+
+        /* ACTION BUTTONS */
+        .action-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 999px;
+            border: 2px solid var(--text-light);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .action-btn:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        .action-btn.primary {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+        }
+
+        .action-btn.secondary {
+            background-color: transparent;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 850px) {
+            .content-container-blob {
+                padding: 2rem;
+                border-radius: 40px 4px 40px 4px;
+            }
+            .bracket-wrapper {
+                padding: 1.5rem 1.2rem;
+            }
+            .bracket-wrapper::before { width: 12px; }
+            .bracket-wrapper::after { width: 12px; }
+            .main-title { font-size: 2rem; }
+            .project-title { font-size: 1.4rem; }
+            .action-row { flex-direction: column; }
+            .action-btn { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+
+        <nav class="back-nav">
+            <!-- back link points to the projects list, not the main hub -->
+            <a href="projects.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+        </nav>
+
+        <header class="main-header">
+            <h1 class="main-title">Omkar Dixit</h1>
+        </header>
+
+        <main class="content-container-blob">
+            <div class="bracket-wrapper">
+
+                <section class="project-section">
+                    <!-- 1. PROJECT TITLE — change per project -->
+                    <h2 class="project-title">Digito: Turning Math Anxiety into Confidence</h2>
+                  <h3 class="project-subtitle">Product Strategy Case Study: EdTech math-learning platform: Digito · persona development, learning-science-grounded feature strategy, roadmap</h3>
+                  <h4 class="project-type">Product Strategy Case Study: EdTech math-learning platform: Digito · persona development, learning-science-grounded feature strategy, roadmap</h4>
+
+                    <div class="stream-divider"></div>
+
+                    <!-- 2. DESCRIPTION PARAGRAPH — change per project -->
+                    <p class="project-description">
+                        For many students, math isn’t just hard—it’s a source of quiet dread. Digito was built for them: the ones who freeze at word problems, who feel “I’m just not a math person,” and who carry that anxiety into every new concept. Through deep persona work rooted in real student struggles, we mapped the emotional and cognitive barriers that block learning. Then we grounded every feature in learning science—scaffolded practice, low-stakes feedback, and progress that feels earned instead of judged—so the product reduces fear while building real skill. The result is a clear roadmap that prioritizes emotional safety and mastery together, turning math from something students avoid into something they can actually own.
+                    </p>
+
+                    <!-- 3 & 4. ACTION BUTTONS — swap the hrefs per project -->
+                    <div class="action-row">
+                        <a
+                            href="downloads/clacker-tracker.zip"
+                            download
+                            class="action-btn primary"
+                        >
+                            <i class="fa-solid fa-download"></i> Download Project
+                        </a>
+                        <a
+                            href="https://github.com/omkardixit24/clacker-tracker"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="action-btn secondary"
+                        >
+                            <i class="fa-brands fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
