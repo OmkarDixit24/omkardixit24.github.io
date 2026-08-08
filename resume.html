@@ -105,6 +105,24 @@
             text-transform: uppercase;
         }
 
+        /* Subtitle + contact line: additive only, same token set as the rest of the page */
+        .main-subtitle {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 0.6rem;
+            opacity: 0.85;
+        }
+
+        .contact-line {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+            opacity: 0.65;
+        }
+
         /* CORE EXPERIENCE STRUCTURAL CONTAINER (SAGE BLOB) */
         .resume-container-blob {
             background-color: var(--blob-color);
@@ -126,6 +144,15 @@
             border-bottom: 2px solid var(--text-dark);
             padding-bottom: 0.4rem;
             display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-intro {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            margin-top: -1rem;
             margin-bottom: 1.5rem;
         }
 
@@ -194,6 +221,10 @@
             opacity: 0.7;
         }
 
+        .summary-text {
+            font-size: 0.95rem;
+        }
+
         /* STRENGTHS SPECIFIC GRID */
         .strengths-grid {
             display: grid;
@@ -253,69 +284,135 @@
 
         <header class="main-header">
             <h1 class="main-title">Omkar Dixit</h1>
+            <p class="main-subtitle">Aspiring Business Analyst | Requirements Documentation, Process Analysis &amp; Data Insights</p>
+            <p class="contact-line">Nanded, Maharashtra, India &bull; omkardixit2@gmail.com &bull; +91 70301 28869 &bull; linkedin.com/in/omkardixit2406 &bull; omkardixit24.github.io</p>
         </header>
 
         <main class="resume-container-blob">
-            
+
+            <div>
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="resume-card">
+                    <p class="summary-text">Detail-oriented professional with 7+ years of experience translating stakeholder needs into clear documentation, standardized processes, and delivery trackers across content operations and client consulting. Strong foundation in requirements gathering, process mapping, Excel-based analysis, and cross-functional coordination. Actively building BA capabilities through SQL, Agile/Scrum practices, and four end-to-end applied case studies that demonstrate requirements elicitation, prioritization frameworks, PRD authoring, and as-is/to-be process analysis. Targeting Junior Business Analyst, Operations Analyst, and Process Analyst roles.</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-title">Portfolio — Applied Business Analysis Case Studies</h2>
+                <p class="section-intro">Four self-directed projects built end-to-end to demonstrate core BA skills. Full write-ups available at GitHub.</p>
+
+                <article class="resume-card">
+                    <div class="card-header-row">
+                        <h3 class="role-title">1. Competitive Product Teardown &amp; Feature Prioritization — Blinkit</h3>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Reverse-engineered core user flows and mapped jobs-to-be-done; performed competitive gap analysis against 2–3 peers.</li>
+                        <li>Applied RICE and MoSCoW prioritization; produced a documented feature roadmap with explicit trade-off rationale and success criteria.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-card">
+                    <div class="card-header-row">
+                        <h3 class="role-title">2. 0-to-1 Product Requirements Document — Clacker-Tracker (Hardware + BLE Companion App)</h3>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Authored a full PRD covering three interdependent layers (firmware, hardware, BLE mobile app) for a connected product built from scratch.</li>
+                        <li>Defined functional &amp; non-functional requirements, edge cases, acceptance criteria, and cross-layer dependencies ready for engineering hand-off.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-card">
+                    <div class="card-header-row">
+                        <h3 class="role-title">3. Persona-Driven Product Strategy &amp; Roadmap — EdTech Math Platform (Digito)</h3>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Developed user personas and learning-science-aligned feature requirements for a K–12 math platform; conducted competitive landscape analysis.</li>
+                        <li>Delivered a phased roadmap with prioritized features, trade-off documentation, and equity-focused success KPIs.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-card">
+                    <div class="card-header-row">
+                        <h3 class="role-title">4. Business Process Analysis &amp; Improvement — Content Operations Pipeline</h3>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Mapped as-is workflows across a multi-stakeholder content pipeline; identified bottlenecks, hand-off failures, and root causes.</li>
+                        <li>Designed to-be process flows and framed efficiency recommendations as clear operational and tooling requirements.</li>
+                    </ul>
+                </article>
+            </div>
+
             <div>
                 <h2 class="section-title">Professional Experience</h2>
                 
                 <article class="resume-card">
                     <div class="card-header-row">
                         <div>
-                            <h3 class="role-title">Freelance Business Analyst & Operations Consultant</h3>
-                            <p class="company-meta">Independent Consultant | Remote</p>
+                            <h3 class="role-title">Independent Professional Development — Business Analysis Focus</h3>
+                            <p class="company-meta">Self-Directed Skill-Building Program | Remote</p>
                         </div>
-                        <span class="timeline-badge">Mar 2024 – Sep 2024</span>
+                        <span class="timeline-badge">Sep 2024 – Present</span>
                     </div>
                     <ul class="bullet-list">
-                        <li>Led end to end requirement gathering across concurrent client accounts, converting ambiguous stakeholder asks into structured requirement documents and delivery roadmaps.</li>
-                        <li>Converted unstructured stakeholder input into validated specifications and structured reporting dashboards, improving delivery accuracy and turnaround.</li>
-                        <li>Coordinated cross functional stakeholder communication and reporting, maintaining 100% deadline compliance across parallel workstreams.</li>
-                        <li>Built exception tracking and quality assurance checkpoints to catch requirement gaps before delivery, reducing rework.</li>
-                    </ul>
-                </article>
-
-                <article class="resume-article resume-card">
-                    <div class="card-header-row">
-                        <div>
-                            <h3 class="role-title">Business Operations & Product Support Specialist</h3>
-                            <p class="company-meta">24 Media Films Pvt. Ltd. | Pune, India</p>
-                        </div>
-                        <span class="timeline-badge">Sep 2023 – Mar 2024</span>
-                    </div>
-                    <ul class="bullet-list">
-                        <li>Owned onboarding requirements and process flows for new clients, identifying gaps and standardizing documentation across teams.</li>
-                        <li>Built and maintained delivery trackers and status dashboards used by cross departmental teams to prioritize work and track progress.</li>
-                        <li>Served as primary liaison between client stakeholders and internal teams, translating business requirements into actionable tasks.</li>
-                        <li>Analyzed operational data using Excel (Pivot Tables, VLOOKUP, SUMIFS) to identify process bottlenecks and improve reporting accuracy.</li>
+                        <li>Completed structured learning in Agile/Scrum practices, SQL for analysis, BRD/PRD authoring, prioritization frameworks (MoSCoW, RICE), and process mapping techniques.</li>
+                        <li>Designed and executed four applied case studies (see Portfolio) covering requirements documentation, competitive analysis, 0-to-1 product PRDs, and end-to-end process improvement.</li>
+                        <li>Built practical readiness for Junior Business Analyst and Operations Analyst roles through hands-on documentation, analysis, and prioritization work.</li>
                     </ul>
                 </article>
 
                 <article class="resume-card">
                     <div class="card-header-row">
                         <div>
-                            <h3 class="role-title">Senior Product & Content Strategist</h3>
-                            <p class="company-meta">Independent Consultant (Freelance) | Remote</p>
+                            <h3 class="role-title">Freelance Operations &amp; Process Consultant</h3>
+                            <p class="company-meta">Independent Consultant | Remote</p>
+                        </div>
+                        <span class="timeline-badge">Mar 2024 – Sep 2024</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Gathered stakeholder requirements and converted them into structured documentation and process flows for concurrent client accounts in content and operations domains.</li>
+                        <li>Designed QA checkpoints and Excel-based reporting trackers that identified gaps early, reduced rework, and improved delivery hand-offs.</li>
+                        <li>Documented current processes and recommended practical improvements aligned with client timelines and operational constraints.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-card">
+                    <div class="card-header-row">
+                        <div>
+                            <h3 class="role-title">Digital Marketing &amp; Operations Associate</h3>
+                            <p class="company-meta">24 Media Films Pvt. Ltd. | Pune</p>
+                        </div>
+                        <span class="timeline-badge">Sep 2023 – Mar 2024</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Owned client onboarding requirements gathering and process documentation; created standardized hand-off templates that improved consistency across teams.</li>
+                        <li>Built delivery trackers and operational dashboards; analyzed performance data with PivotTables, VLOOKUP, and SUMIFS to increase reporting accuracy and highlight bottlenecks.</li>
+                        <li>Coordinated with stakeholders to clarify scope, document expectations, and support smoother project execution.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-card">
+                    <div class="card-header-row">
+                        <div>
+                            <h3 class="role-title">Freelance Content &amp; Digital Strategist</h3>
+                            <p class="company-meta">Independent Consultant | Remote</p>
                         </div>
                         <span class="timeline-badge">Jun 2018 – Aug 2023</span>
                     </div>
                     <ul class="bullet-list">
-                        <li>Independently owned strategy and execution across multi year client accounts, prioritizing competing requirements with minimal oversight.</li>
-                        <li>Established version controlled documentation and centralized knowledge systems, improving retrieval and consistency across teams.</li>
-                        <li>Sustained on time delivery and data integrity across high workload, multi stakeholder projects over a 5 year span.</li>
+                        <li>Managed multi-year client accounts end-to-end under minimal oversight; translated business goals into actionable plans and consistent delivery.</li>
+                        <li>Built version-controlled documentation systems and knowledge bases that improved consistency, reduced collaborator onboarding time, and enabled reliable knowledge transfer.</li>
                     </ul>
                 </article>
             </div>
 
             <div>
-                <h2 class="section-title">Education & Credentials</h2>
+                <h2 class="section-title">Education</h2>
                 
                 <div class="resume-card">
                     <div class="card-header-row">
                         <div>
-                            <h3 class="role-title">Bachelor of Science, Computer Science</h3>
-                            <p class="company-meta">MGM's College of Computer Science & IT, Nanded (SRTM University)</p>
+                            <h3 class="role-title">B.Sc. Computer Science</h3>
+                            <p class="company-meta">MGM's College of Computer Science &amp; IT, SRTM University, Nanded</p>
                         </div>
                         <span class="timeline-badge">2018</span>
                     </div>
@@ -324,8 +421,8 @@
                 <div class="resume-card">
                     <div class="card-header-row">
                         <div>
-                            <h3 class="role-title">Higher Secondary Certificate (HSC), Science</h3>
-                            <p class="company-meta">NES Science College, Nanded</p>
+                            <h3 class="role-title">HSC (Science)</h3>
+                            <p class="company-meta">Nanded</p>
                         </div>
                         <span class="timeline-badge">2014</span>
                     </div>
@@ -334,8 +431,8 @@
                 <div class="resume-card">
                     <div class="card-header-row">
                         <div>
-                            <h3 class="role-title">Secondary School Certificate (SSC)</h3>
-                            <p class="company-meta">Madhavrao Patil High School, Nanded</p>
+                            <h3 class="role-title">SSC</h3>
+                            <p class="company-meta">Nanded</p>
                         </div>
                         <span class="timeline-badge">2012</span>
                     </div>
@@ -343,54 +440,38 @@
             </div>
 
             <div>
-                <h2 class="section-title">Execution Strengths</h2>
+                <h2 class="section-title">Core Skills</h2>
                 <div class="strengths-grid">
                     
                     <div class="strength-box">
                         <i class="fa-solid fa-file-signature strength-icon"></i>
                         <div class="strength-text">
-                            <h4>Requirement Gathering & Specs</h4>
-                            <p>Converting ambiguous stakeholder asks into structured requirement documents, PRDs, and clear user stories.</p>
-                        </div>
-                    </div>
-
-                    <div class="strength-box">
-                        <i class="fa-solid fa-database strength-icon"></i>
-                        <div class="strength-text">
-                            <h4>SQL & Data Analysis</h4>
-                            <p>Writing SQL queries, joins, filters, and aggregations to ground product decisions in real data.</p>
-                        </div>
-                    </div>
-
-                    <div class="strength-box">
-                        <i class="fa-solid fa-file-excel strength-icon"></i>
-                        <div class="strength-text">
-                            <h4>Advanced Excel & Reporting</h4>
-                            <p>Building pivot tables, VLOOKUP/XLOOKUP, INDEX/MATCH, and SUMIFS driven dashboards for clear, reliable reporting.</p>
-                        </div>
-                    </div>
-
-                    <div class="strength-box">
-                        <i class="fa-solid fa-route strength-icon"></i>
-                        <div class="strength-text">
-                            <h4>Process Mapping & Backlog Prioritization</h4>
-                            <p>Mapping workflows end to end and prioritizing backlogs so teams always work on what matters most.</p>
-                        </div>
-                    </div>
-
-                    <div class="strength-box">
-                        <i class="fa-solid fa-people-arrows strength-icon"></i>
-                        <div class="strength-text">
-                            <h4>Cross Functional Stakeholder Management</h4>
-                            <p>Acting as the primary liaison between client stakeholders and internal teams, keeping delivery aligned on scope.</p>
+                            <h4>Requirements &amp; Documentation</h4>
+                            <p>Requirements elicitation, BRD/PRD writing, user stories &amp; acceptance criteria, process mapping (as-is/to-be), gap analysis, and documentation systems.</p>
                         </div>
                     </div>
 
                     <div class="strength-box">
                         <i class="fa-solid fa-magnifying-glass-chart strength-icon"></i>
                         <div class="strength-text">
-                            <h4>Root Cause & Data Driven Reporting</h4>
-                            <p>Tracing process bottlenecks back to their source and reporting findings in a way that drives real decisions.</p>
+                            <h4>Analysis &amp; Prioritization</h4>
+                            <p>Root cause analysis, bottleneck identification, MoSCoW &amp; RICE prioritization, backlog structuring, stakeholder alignment, and competitive analysis.</p>
+                        </div>
+                    </div>
+
+                    <div class="strength-box">
+                        <i class="fa-solid fa-route strength-icon"></i>
+                        <div class="strength-text">
+                            <h4>Delivery &amp; Methods</h4>
+                            <p>Agile/Scrum fundamentals, SDLC awareness, sprint &amp; backlog planning concepts, delivery tracking, and cross-functional coordination.</p>
+                        </div>
+                    </div>
+
+                    <div class="strength-box">
+                        <i class="fa-solid fa-database strength-icon"></i>
+                        <div class="strength-text">
+                            <h4>Data &amp; Tools</h4>
+                            <p>SQL (joins, aggregation, filtering), Advanced Excel (XLOOKUP, PivotTables, SUMIFS, INDEX/MATCH, VLOOKUP), Google Sheets, and process documentation.</p>
                         </div>
                     </div>
 
