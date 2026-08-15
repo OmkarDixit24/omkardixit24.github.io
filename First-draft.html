@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eat the Frog! | Omkar Dixit Portfolio</title>
+    
+    <!-- UNIFIED INLINE EMULATION FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A3C1AD'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23F0EFEA'/%3E%3C/svg%3E">
+    
+    <!-- GLOBAL FONTS SYSTEM -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FONTAWESOME FRAMEWORK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* INHERITED TOKENS FOR 100% VISUAL INTEGRITY */
+        :root {
+            --bg-color: #F0EFEA;       /* Warm Off-White */
+            --blob-color: #A3C1AD;     /* Corporate Sage Green */
+            --text-dark: #2A2A2A;      /* Deep Soft Charcoal */
+            --text-light: #FFFFFF;     /* Pure White Accent */
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --max-width: 1050px;
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .back-nav {
+            margin-bottom: -1rem;
+        }
+        
+        .back-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed);
+        }
+        
+        .back-link:hover { opacity: 1; }
+
+        .main-header { text-align: center; }
+        .main-title {
+            font-family: var(--font-header);
+            font-size: 2.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* RESTORED EXACT ORIGINAL BLOB CONTAINER SHAPE & SHADOW */
+        .content-container-blob {
+            background-color: var(--blob-color);
+            border-radius: 80px 4px 80px 4px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* INNER BRACKETS CONTAINER FRAME */
+        .bracket-wrapper {
+            position: relative;
+            padding: 2.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        /* LEFT WHITE BRACKET [ (INSIDE GREEN BLOB) */
+        .bracket-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 18px;
+            border-left: 4px solid var(--text-light);
+            border-top: 4px solid var(--text-light);
+            border-bottom: 4px solid var(--text-light);
+            pointer-events: none;
+        }
+
+        /* RIGHT WHITE BRACKET ] (INSIDE GREEN BLOB) */
+        .bracket-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 18px;
+            border-right: 4px solid var(--text-light);
+            border-top: 4px solid var(--text-light);
+            border-bottom: 4px solid var(--text-light);
+            pointer-events: none;
+        }
+
+        /* ESSAY SPECIFIC TYPOGRAPHY */
+        .essay-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .essay-title {
+            font-family: var(--font-header);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .essay-meta {
+            font-family: var(--font-header);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.75;
+        }
+
+        .essay-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        .essay-body p {
+            text-align: justify;
+        }
+
+        .essay-body blockquote {
+            font-style: italic;
+            border-left: 3px solid var(--text-dark);
+            padding-left: 1rem;
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        /* FOOTER / NAVIGATION BACK TO READS & WRITES */
+        .essay-footer {
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(42, 42, 42, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .essay-footer-link {
+            font-family: var(--font-header);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: opacity var(--transition-speed);
+        }
+
+        .essay-footer-link:hover { opacity: 0.7; }
+
+        @media (max-width: 850px) {
+            .content-container-blob { 
+                padding: 2rem; 
+                border-radius: 40px 4px 40px 4px; 
+            }
+            .bracket-wrapper { 
+                padding: 1.8rem 1.2rem; 
+            }
+            .bracket-wrapper::before { width: 12px; }
+            .bracket-wrapper::after { width: 12px; }
+            .essay-title { font-size: 1.5rem; }
+            .main-title { font-size: 2rem; }
+            .essay-body p { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+        
+        <nav class="back-nav">
+            <a href="reads-writes.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Reads & Writes</a>
+        </nav>
+
+        <header class="main-header">
+            <h1 class="main-title">Omkar Dixit</h1>
+        </header>
+
+        <!-- EXACT ORIGINAL GREEN BLOB CONTAINER -->
+        <main class="content-container-blob">
+            
+            <!-- BRACKET FRAMEWORK (EXPANDS WITH TEXT HEIGHT) -->
+            <article class="bracket-wrapper">
+                
+                <header class="essay-header">
+                    <h1 class="essay-title">First Draft</h1>
+                    <span class="essay-meta">Essay • August 2026</span>
+                </header>
+
+                <div class="essay-body">
+                                  
+<p>
+It's 2026, been more than a decade since I stopped writing on Quora. After the entry of short form content in form of Music.ly, TikTok, reels and then, shorts around the Pandemic on the social media world, I have this hunch that reading has significantly dropped. I think people were cribbing about dropping reader-ship even long before that, maybe it's been an eternal problem, but ever since we have been hooked on to the short form media - even the ardent of the readers are struggling to maintain the book-reading habbit. 
+</p>
+
+<p>
+There was a time when Blogger, WordPress were ruling the internet, that has been now taken over by newsletters (including Medium and Substack), but do we really care to read them? I don't know. I don't have the figures. </p>
+
+<p>
+I used to regularly write on Q, before it turned into a complete mess - a dumpster or rather, a floating patch of garbage in the ocean of internet. </p>
+
+<p>
+I built this website for uploading the personal projects, to attract the recruiters and hiring managers, but I had this internal itch that was awaiting to be scratched since pandemic. However, writing regularly on Medium/Substack felt daunting, given it is full of "intellectuals", and I wanted a space that was "mine", so, why not this page? couldn't have been better. 
+</p>
+
+<p>
+But then write on what? I don't know. No idea. I've been out of this game since a long time. I can't just magically write anything, and I consider leisurely writing sacred enough to not let AI or Clanker Quill do this sacred job on my behalf. I'd rather write a few horrible, shitty pages than to let the Clanker write something for me. That's where I draw the line. I'm willing to embrace this uncertainty. Homecoming of a writer. Letting a clanker do this for you is a pure blasphemy. 
+</p>
+<p>
+Anyway, I wanted to pick up the quill and write something down, just to push the boulder uphill, just to get the snowball rolling. Let the momentum build up, and seems like I've managed to come up with a few coherent paragraphs, even if you're wondering what's the purpose of this entire write-up, please, forgive me, for I'm a novice writer, still learning to stitch the fabric of sentences and hoping that this fabric will give some warmth to stranger who ended up in this cold cave of mine. 
+</p>
+
+<p>
+I hope you also feel the warmth of these words. 
+</p>
+
+<p>
+I'm leaving you here for now, I'll be back with something new, warmer, thicker.. that will give you the comfort of peeking out of a window on a snowy winter afternoon, with a hot-chocolate fudge in your hands, and a smile on your face. :)
+</p>
+                </div>
+
+                <footer class="essay-footer">
+                    <a href="reads-writes.html" class="essay-footer-link"><i class="fa-solid fa-arrow-left"></i> All Essays</a>
+                    <span class="essay-meta">Omkar Dixit</span>
+                </footer>
+
+            </article>
+
+        </main>
+    </div>
+
+</body>
+</html>
