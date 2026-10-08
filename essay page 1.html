@@ -88,11 +88,13 @@
 
     <!-- Sticky header keeps the name and progress bar visible at all times -->
     <header class="sticky top-0 bg-white z-50 shadow-sm">
-        <!-- Top margin and Name -->
+        <!-- Top margin and Name linking back to index.html -->
         <div class="pt-10 pb-4 px-4 text-center">
-            <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide">
-                Omkar Dixit
-            </h1>
+            <a href="index.html" class="inline-block">
+                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-purple transition-colors duration-300">
+                    Omkar Dixit
+                </h1>
+            </a>
         </div>
         
         <!-- Scroll Progress Bar Container -->
@@ -155,14 +157,14 @@
             
         </article>
 
-        <!-- Interactions Section (Likes & Shares) -->
+        <!-- Interactions Section -->
         <div class="mt-16 flex items-center justify-center space-x-12 border-t border-gray-100 pt-10">
             <!-- Like Button -->
             <button id="like-btn" class="group flex items-center space-x-2 text-pastel-purple hover:text-solid-purple transition-colors duration-200 focus:outline-none">
                 <svg id="like-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform duration-200 group-active:scale-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
-                <span id="like-count" class="font-lora text-xl font-medium">42</span>
+                <span id="like-count" class="font-lora text-xl font-medium">0</span>
             </button>
 
             <!-- Share Button -->
@@ -206,13 +208,13 @@
         });
 
         // Script for the Like Button Tracker
-        const essayId = "essay-silence-between-notes"; // Change this ID for different essays
+        const essayId = "essay-silence-between-notes"; 
         const likeBtn = document.getElementById("like-btn");
         const likeIcon = document.getElementById("like-icon");
         const likeCountDisplay = document.getElementById("like-count");
         
-        // Initialize from local storage (Simulating a database)
-        let currentLikes = parseInt(localStorage.getItem(`likes_${essayId}`)) || 42; 
+        // Starts at 0 now instead of 42
+        let currentLikes = parseInt(localStorage.getItem(`likes_${essayId}`)) || 0; 
         let isLiked = localStorage.getItem(`has_liked_${essayId}`) === 'true';
 
         // Set initial UI state
@@ -253,7 +255,6 @@
                 if (navigator.share) {
                     await navigator.share(shareData);
                 } else {
-                    // Fallback: Copy link to clipboard
                     await navigator.clipboard.writeText(window.location.href);
                     shareText.textContent = "Copied!";
                     setTimeout(() => { shareText.textContent = "Share"; }, 2000);
