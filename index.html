@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omkar Dixit | Essays & Opinions</title>
+    
+    <!-- Simple elegant 'O' favicon using SVG data URI -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
+
+    <!-- Fonts: Playfair Display, Lora, EB Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'lora': ['"Lora"', 'serif'],
+                        'garamond': ['"EB Garamond"', 'serif'],
+                    },
+                    colors: {
+                        'charcoal': '#333333',
+                        'pastel-purple': '#9B7EBD',
+                        'solid-purple': '#7E57C2',
+                        'pure-black': '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Subtle fade-in animation for newly loaded essays */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .essay-entry {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        /* Spinner for infinite scroll loading indicator */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #9B7EBD;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="font-garamond antialiased selection:bg-pastel-purple selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky header keeps the name and progress bar visible at all times -->
+    <header class="sticky top-0 bg-white z-50 shadow-sm">
+        <!-- Top margin and Name -->
+        <div class="pt-10 pb-4 px-4 text-center">
+            <a href="/" class="inline-block">
+                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-purple transition-colors duration-300">
+                    Omkar Dixit
+                </h1>
+            </a>
+        </div>
+        
+        <!-- Scroll Progress Bar Container -->
+        <div class="w-full h-1.5 bg-transparent">
+            <!-- The actual solid purple bar that expands -->
+            <div id="scroll-progress-bar" class="h-full bg-solid-purple w-0 transition-all duration-75 ease-out"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area for the Homepage -->
+    <main class="flex-grow max-w-3xl mx-auto px-6 py-16 md:py-20 w-full">
+        
+        <!-- Introduction / Tagline -->
+        <div class="mb-20 text-center md:text-left">
+            <h2 class="font-lora text-xl md:text-2xl text-gray-500 italic">
+                Reflections on Product Management, Technology, and the Human Experience.
+            </h2>
+        </div>
+
+        <!-- Container where infinite scroll essays will be appended -->
+        <div id="essay-list" class="flex flex-col">
+            <!-- Essays will be injected here via JavaScript -->
+        </div>
+
+        <!-- Loading Indicator for Infinite Scroll -->
+        <div id="loading-indicator" class="flex justify-center items-center py-10 opacity-0 transition-opacity duration-300">
+            <div class="loader"></div>
+            <span class="ml-3 font-lora text-pastel-purple italic">Loading more essays...</span>
+        </div>
+
+    </main>
+
+    <script>
+        // Database of dummy PM-related essay titles
+        const pmEssays = [
+            {
+                title: "The Empathy Imperative",
+                subtitle: "Navigating the Product Manager's Dilemma in a Data-Driven World",
+                date: "October 8, 2026"
+            },
+            {
+                title: "Metrics and Melancholy",
+                subtitle: "When Quantitative Data Fails to Tell the Human Story",
+                date: "September 24, 2026"
+            },
+            {
+                title: "The Architecture of Intent",
+                subtitle: "Building Digital Products with Soul and Purpose",
+                date: "September 12, 2026"
+            },
+            {
+                title: "Roadmaps in the Dark",
+                subtitle: "Embracing Uncertainty in Long-term Product Strategy",
+                date: "August 30, 2026"
+            },
+            {
+                title: "Feature Factories and the Death of Innovation",
+                subtitle: "Why Shipping More Doesn't Always Mean Delivering Value",
+                date: "August 15, 2026"
+            },
+            {
+                title: "The Philosopher PM",
+                subtitle: "Ethical Considerations in User Engagement and Retention",
+                date: "July 28, 2026"
+            },
+            {
+                title: "Silence in the Feedback Loop",
+                subtitle: "Listening to What Your Users Aren't Telling You",
+                date: "July 10, 2026"
+            },
+            {
+                title: "The Weight of a Button",
+                subtitle: "Micro-interactions, Friction, and Human Psychology",
+                date: "June 22, 2026"
+            }
+        ];
+
+        let currentIndex = 0;
+        const essayList = document.getElementById("essay-list");
+        const loadingIndicator = document.getElementById("loading-indicator");
+        let isLoading = false;
+
+        // Function to create and append an essay block
+        const loadMoreEssays = () => {
+            if (isLoading) return;
+            isLoading = true;
+            loadingIndicator.style.opacity = "1";
+
+            // Simulate slight network delay for the infinite scroll feel
+            setTimeout(() => {
+                // Load 4 essays at a time
+                for (let i = 0; i < 4; i++) {
+                    // Loop back to start if we run out of dummy data (simulates infinite content)
+                    const essay = pmEssays[currentIndex % pmEssays.length];
+                    
+                    const article = document.createElement("article");
+                    // Generous spacing between essays (mb-16, py-8)
+                    article.className = "essay-entry mb-12 border-b border-gray-100 pb-12 group";
+                    
+                    article.innerHTML = `
+                        <a href="essay-page.html" class="block group cursor-pointer transition-transform duration-300 group-hover:-translate-y-1">
+                            <p class="font-lora text-sm text-pastel-purple mb-3 tracking-wide uppercase">${essay.date}</p>
+                            <h2 class="font-playfair text-3xl md:text-4xl font-bold text-charcoal mb-4 group-hover:text-solid-purple transition-colors duration-300">
+                                ${essay.title}
+                            </h2>
+                            <h3 class="font-lora text-xl text-gray-600 italic">
+                                ${essay.subtitle}
+                            </h3>
+                        </a>
+                    `;
+                    
+                    essayList.appendChild(article);
+                    currentIndex++;
+                }
+                
+                isLoading = false;
+                loadingIndicator.style.opacity = "0";
+                
+                // Update progress bar immediately after new content is added
+                updateProgressBar();
+            }, 600);
+        };
+
+        // Scroll Progress Bar Logic
+        const updateProgressBar = () => {
+            const progressBar = document.getElementById("scroll-progress-bar");
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            
+            let scrollPercentage = (scrollTop / scrollHeight) * 100;
+            if (scrollHeight === 0) scrollPercentage = 100;
+            
+            progressBar.style.width = scrollPercentage + "%";
+        };
+
+        // Infinite Scroll Event Listener
+        window.addEventListener("scroll", () => {
+            updateProgressBar();
+
+            // Check if user has scrolled near the bottom of the page (within 200px)
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            if (scrollTop + clientHeight >= scrollHeight - 200) {
+                loadMoreEssays();
+            }
+        });
+
+        // Resize listener for accurate progress bar
+        window.addEventListener("resize", updateProgressBar);
+
+        // Initial load of essays on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            loadMoreEssays();
+        });
+
+    </script>
+</body>
+</html>

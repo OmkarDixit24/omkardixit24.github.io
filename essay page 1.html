@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omkar Dixit | Essays & Opinions</title>
+    
+    <!-- Simple elegant 'O' favicon using SVG data URI -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
+
+    <!-- 
+        Playfair Display: For Header Name and Essay Title
+        Lora: For Essay Subtitle
+        EB Garamond: For Essay Body 
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'lora': ['"Lora"', 'serif'],
+                        'garamond': ['"EB Garamond"', 'serif'],
+                    },
+                    colors: {
+                        'charcoal': '#333333',
+                        'pastel-purple': '#9B7EBD',
+                        'solid-purple': '#7E57C2',
+                        'pure-black': '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Beautifully styled blockquote for future use */
+        blockquote.essay-quote {
+            border-left: 4px solid #9B7EBD;
+            padding: 1rem 1.5rem;
+            margin: 2.5rem 0;
+            background-color: #fafafa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        blockquote.essay-quote p {
+            font-family: "EB Garamond", serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #222222;
+            margin: 0;
+        }
+
+        blockquote.essay-quote footer {
+            margin-top: 0.75rem;
+            font-family: "Lora", serif;
+            font-size: 0.9rem;
+            color: #555555;
+            text-align: right;
+        }
+
+        /* General paragraph styling for readability */
+        .essay-body p {
+            margin-bottom: 1.75rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+    </style>
+</head>
+<body class="font-garamond antialiased selection:bg-pastel-purple selection:text-white">
+
+    <!-- Sticky header keeps the name and progress bar visible at all times -->
+    <header class="sticky top-0 bg-white z-50 shadow-sm">
+        <!-- Top margin and Name -->
+        <div class="pt-10 pb-4 px-4 text-center">
+            <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide">
+                Omkar Dixit
+            </h1>
+        </div>
+        
+        <!-- Scroll Progress Bar Container -->
+        <div class="w-full h-1.5 bg-transparent">
+            <!-- The actual solid purple bar that expands -->
+            <div id="scroll-progress-bar" class="h-full bg-solid-purple w-0 transition-all duration-75 ease-out"></div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-6 py-16 md:py-24">
+        
+        <!-- Essay Header Section -->
+        <header class="mb-14 text-center">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-pastel-purple leading-tight mb-4">
+                The Silence Between the Notes
+            </h2>
+            <h3 class="font-lora text-xl md:text-2xl text-pastel-purple italic opacity-90">
+                Finding Meaning in the Spaces of Modern Existence
+            </h3>
+        </header>
+
+        <!-- Essay Body Section -->
+        <article class="essay-body text-pure-black font-garamond text-lg md:text-xl">
+            
+            <p>
+                We live in a world obsessed with noise. From the moment we awaken to the blue glow of our screens to the relentless hum of urban life that lulls us to sleep, silence has become a luxury few can afford. It is not merely the absence of auditory stimulus, but the scarcity of mental space that characterizes our modern era. In our pursuit of constant connection, we have perhaps inadvertently severed the profound connection we hold with our inner selves.
+            </p>
+
+            <p>
+                Consider a masterpiece of classical music. The brilliance of Mozart or the emotional depth of Chopin is not found exclusively in the notes they chose to play, but in the deliberate, profound silences they placed between them. It is the rest—the pause—that gives the melody its rhythm, its tension, and its ultimate resolution. Without the silence, music devolves into a cacophony, a chaotic barrage of sound devoid of meaning.
+            </p>
+
+            <p>
+                Our lives are much the same. We fill our calendars with endless appointments, our minds with endless scrolling, and our conversations with endless chatter, terrified of what might happen if we allow a pause to linger. We confuse motion with progress, and noise with importance. Yet, it is in the quiet moments—the interstitial spaces of our days—that true creativity and self-reflection are born.
+            </p>
+
+            <!-- Blockquote Template for future copying -->
+            <blockquote class="essay-quote">
+                <p>
+                    "The most profound revelations do not announce themselves with a trumpet's blare. They arrive softly, on the wings of silence, waiting patiently for the moment we finally choose to listen."
+                </p>
+                <footer>— A reflection on stillness</footer>
+            </blockquote>
+
+            <p>
+                To cultivate this silence is not to retreat from the world, but rather to engage with it more authentically. When we step back from the incessant broadcast of modern life, we begin to notice the subtleties that were previously drowned out. The way the morning light dances on a coffee cup, the nuanced expression on a friend's face before they speak, the quiet intuition that guides us toward our truest desires.
+            </p>
+
+            <p>
+                Historically, philosophers and stoics understood the vital necessity of this inner quietude. Marcus Aurelius retreated to his journals, writing to himself in the quiet of his tent amidst military campaigns. Henry David Thoreau sought the isolation of Walden Pond not merely to escape society, but to confront the essential facts of life unmediated by the opinions of others. They understood that the mind, left to its own devices in a quiet environment, acts as a crucible for clarity.
+            </p>
+
+            <p>
+                The challenge for us today is to deliberately carve out these spaces. It requires a conscious rebellion against the economy of attention that seeks to harvest our focus every waking second. It means leaving the phone in another room. It means sitting on a park bench without a podcast playing. It means allowing ourselves the uncomfortable luxury of being bored, for boredom is often the doorway to profound imagination.
+            </p>
+
+            <p>
+                As we navigate the complexities of the 21st century, let us remember the wisdom of the rests in a musical score. Let us not judge the quality of our days merely by how much we produced, how many tasks we crossed off, or how loudly we spoke. Instead, let us also measure our lives by the quality of our silences, and the depth of the thoughts that were allowed to bloom within them.
+            </p>
+            
+        </article>
+
+        <!-- Interactions Section (Likes & Shares) -->
+        <div class="mt-16 flex items-center justify-center space-x-12 border-t border-gray-100 pt-10">
+            <!-- Like Button -->
+            <button id="like-btn" class="group flex items-center space-x-2 text-pastel-purple hover:text-solid-purple transition-colors duration-200 focus:outline-none">
+                <svg id="like-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform duration-200 group-active:scale-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                <span id="like-count" class="font-lora text-xl font-medium">42</span>
+            </button>
+
+            <!-- Share Button -->
+            <button id="share-btn" class="group flex items-center space-x-2 text-pastel-purple hover:text-solid-purple transition-colors duration-200 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform duration-200 group-active:scale-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+                <span id="share-text" class="font-lora text-xl font-medium">Share</span>
+            </button>
+        </div>
+
+        <!-- Optional Footer -->
+        <footer class="mt-12 pt-8 border-t border-gray-100 text-center">
+            <p class="font-lora text-gray-400 text-sm italic">
+                Published on <span id="current-date"></span> • Omkar Dixit
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        // Script to dynamically update the date in the footer
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', dateOptions);
+
+        // Script for the Reading Progress Bar
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBar = document.getElementById("scroll-progress-bar");
+
+            const updateProgressBar = () => {
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                let scrollPercentage = (scrollTop / scrollHeight) * 100;
+                
+                if (scrollHeight === 0) scrollPercentage = 100;
+                progressBar.style.width = scrollPercentage + "%";
+            };
+
+            window.addEventListener("scroll", updateProgressBar);
+            updateProgressBar();
+            window.addEventListener("resize", updateProgressBar);
+        });
+
+        // Script for the Like Button Tracker
+        const essayId = "essay-silence-between-notes"; // Change this ID for different essays
+        const likeBtn = document.getElementById("like-btn");
+        const likeIcon = document.getElementById("like-icon");
+        const likeCountDisplay = document.getElementById("like-count");
+        
+        // Initialize from local storage (Simulating a database)
+        let currentLikes = parseInt(localStorage.getItem(`likes_${essayId}`)) || 42; 
+        let isLiked = localStorage.getItem(`has_liked_${essayId}`) === 'true';
+
+        // Set initial UI state
+        likeCountDisplay.textContent = currentLikes;
+        if (isLiked) {
+            likeIcon.setAttribute("fill", "currentColor");
+        }
+
+        likeBtn.addEventListener("click", () => {
+            if (!isLiked) {
+                currentLikes++;
+                isLiked = true;
+                likeIcon.setAttribute("fill", "currentColor"); // Fill the heart solid
+            } else {
+                currentLikes--;
+                isLiked = false;
+                likeIcon.setAttribute("fill", "none"); // Hollow heart
+            }
+            likeCountDisplay.textContent = currentLikes;
+            
+            // Save state so it tracks when reader refreshes
+            localStorage.setItem(`likes_${essayId}`, currentLikes);
+            localStorage.setItem(`has_liked_${essayId}`, isLiked);
+        });
+
+        // Script for the Share Button
+        const shareBtn = document.getElementById("share-btn");
+        const shareText = document.getElementById("share-text");
+
+        shareBtn.addEventListener("click", async () => {
+            const shareData = {
+                title: 'The Silence Between the Notes | Omkar Dixit',
+                text: 'Check out this beautifully written essay by Omkar Dixit.',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    // Fallback: Copy link to clipboard
+                    await navigator.clipboard.writeText(window.location.href);
+                    shareText.textContent = "Copied!";
+                    setTimeout(() => { shareText.textContent = "Share"; }, 2000);
+                }
+            } catch (err) {
+                console.error("Error sharing:", err);
+            }
+        });
+    </script>
+</body>
+</html>
