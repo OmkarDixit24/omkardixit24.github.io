@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Omkar Dixit</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'playfair': ['"Playfair Display"', 'serif'], 'lora': ['"Lora"', 'serif'], 'garamond': ['"EB Garamond"', 'serif'] },
+                    colors: { 'charcoal': '#333333', 'pastel-purple': '#9B7EBD', 'solid-purple': '#7E57C2', 'pure-black': '#000000' }
+                }
+            }
+        }
+    </script>
+    <style> body { background-color: #ffffff; color: #000000; } html { scroll-behavior: smooth; } </style>
+</head>
+<body class="font-garamond antialiased selection:bg-pastel-purple selection:text-white flex flex-col min-h-screen">
+
+    <header class="sticky top-0 bg-white z-50 shadow-sm">
+        <div class="pt-10 pb-4 px-4 text-center">
+            <a href="portfolio.html" class="inline-block">
+                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-purple transition-colors duration-300">Omkar Dixit</h1>
+            </a>
+        </div>
+        <div class="w-full h-1.5 bg-transparent">
+            <div id="scroll-progress-bar" class="h-full bg-solid-purple w-0 transition-all duration-75 ease-out"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto px-6 py-16 md:py-24 w-full">
+        <header class="mb-14 text-center sm:text-left">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-pastel-purple mb-4">Selected Projects</h2>
+            <h3 class="font-lora text-xl text-gray-500 italic">Hardware, Systems Analysis, and Digital Products</h3>
+        </header>
+
+        <div class="space-y-16">
+            
+            <!-- Project 1 -->
+            <article class="border-b border-gray-100 pb-12">
+                <h2 class="font-playfair text-3xl font-bold text-charcoal mb-2">Clacker - Tracker</h2>
+                <p class="font-lora text-pastel-purple italic mb-4">Hardware Prototype & Desktop App</p>
+                <p class="font-garamond text-lg text-pure-black leading-relaxed">
+                    Designed and mapped the hardware roadmap for a minimalistic desktop device that tracks and logs user clicks with network-synced timestamps. Built iterative Python scripts to handle data output to CSV and Excel files, wrapping the desktop application in a custom 8-bit cherry blossom retro visual theme.
+                </p>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="border-b border-gray-100 pb-12">
+                <h2 class="font-playfair text-3xl font-bold text-charcoal mb-2">Tuljapur Transit: Inclusive Digitization PRD</h2>
+                <p class="font-lora text-pastel-purple italic mb-4">Product Requirements Document & Case Study</p>
+                <p class="font-garamond text-lg text-pure-black leading-relaxed">
+                    Conducted on-ground operational analysis of digital bus ticketing machines and baggage counter receipt storage systems in Tuljapur. Authored a comprehensive Product Case Study and PRD focusing on inclusive digitization workflows, offline verification reliability, and user-centric system optimization.
+                </p>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="border-b border-gray-100 pb-12">
+                <h2 class="font-playfair text-3xl font-bold text-charcoal mb-2">Learning Business Analysis with OD</h2>
+                <p class="font-lora text-pastel-purple italic mb-4">Educational Web Platform</p>
+                <p class="font-garamond text-lg text-pure-black leading-relaxed">
+                    Developed a modular educational portfolio website to document and teach Business Analysis frameworks using the Feynman Technique. Architected the site structure and authored the code, adopting a stark black-and-white aesthetic featuring hand-drawn SVG icons and XKCD-style illustrations.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="flex justify-center items-center mt-24 opacity-60">
+            <div class="h-px w-12 bg-pastel-purple"></div>
+            <div class="mx-6 text-pastel-purple text-2xl font-lora">✤</div>
+            <div class="h-px w-12 bg-pastel-purple"></div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBar = document.getElementById("scroll-progress-bar");
+            const updateProgressBar = () => {
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                progressBar.style.width = scrollHeight === 0 ? "100%" : (scrollTop / scrollHeight) * 100 + "%";
+            };
+            window.addEventListener("scroll", updateProgressBar);
+            updateProgressBar();
+        });
+    </script>
+</body>
+</html>

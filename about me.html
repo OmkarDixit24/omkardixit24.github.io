@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Omkar Dixit</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'playfair': ['"Playfair Display"', 'serif'], 'lora': ['"Lora"', 'serif'], 'garamond': ['"EB Garamond"', 'serif'] },
+                    colors: { 'charcoal': '#333333', 'pastel-purple': '#9B7EBD', 'solid-purple': '#7E57C2', 'pure-black': '#000000' }
+                }
+            }
+        }
+    </script>
+    <style> body { background-color: #ffffff; color: #000000; } html { scroll-behavior: smooth; } </style>
+</head>
+<body class="font-garamond antialiased selection:bg-pastel-purple selection:text-white flex flex-col min-h-screen">
+
+    <header class="sticky top-0 bg-white z-50 shadow-sm">
+        <div class="pt-10 pb-4 px-4 text-center">
+            <a href="portfolio.html" class="inline-block">
+                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-purple transition-colors duration-300">Omkar Dixit</h1>
+            </a>
+        </div>
+        <div class="w-full h-1.5 bg-transparent">
+            <div id="scroll-progress-bar" class="h-full bg-solid-purple w-0 transition-all duration-75 ease-out"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto px-6 py-16 md:py-24 w-full">
+        <header class="mb-14 text-center sm:text-left">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-pastel-purple mb-4">About Me</h2>
+            <h3 class="font-lora text-xl text-gray-500 italic">Connecting the dots between strategy, psychology, and design.</h3>
+        </header>
+
+        <article class="text-pure-black font-garamond text-lg md:text-xl space-y-7 leading-relaxed">
+            <p>
+                My professional journey began in the world of freelance content strategy and technical writing, where I honed the ability to elicit requirements, document complex workflows, and communicate clearly. However, my curiosity has always extended beyond the written word and into the mechanics of how things are built.
+            </p>
+            <p>
+                Taking a deliberate career break allowed me to pivot towards my true passion: Product Management and Business Analysis. I approach product design through a unique lens, drawing heavily from my readings in psychology, human influence, game theory, and philosophy. I believe that whether you are designing a digital interface or a physical tool, the core goal is understanding human behavior.
+            </p>
+            <p>
+                I am deeply influenced by the Feynman Technique and David Perell's philosophies on public writing. I write online to clarify my thinking, process management frameworks, and share my journey in tech.
+            </p>
+            <p>
+                Beyond software, I have a profound appreciation for minimalist aesthetics—think stark black-and-white layouts, hand-drawn XKCD-style illustrations, and 8-bit retro visuals. In my spare time, I tinker with building minimalistic electronic hardware, studying the mechanics of drones, and exploring embedded systems.
+            </p>
+        </article>
+
+        <div class="flex justify-center items-center mt-24 opacity-60">
+            <div class="h-px w-12 bg-pastel-purple"></div>
+            <div class="mx-6 text-pastel-purple text-2xl font-lora">✤</div>
+            <div class="h-px w-12 bg-pastel-purple"></div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBar = document.getElementById("scroll-progress-bar");
+            const updateProgressBar = () => {
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                progressBar.style.width = scrollHeight === 0 ? "100%" : (scrollTop / scrollHeight) * 100 + "%";
+            };
+            window.addEventListener("scroll", updateProgressBar);
+            updateProgressBar();
+        });
+    </script>
+</body>
+</html>

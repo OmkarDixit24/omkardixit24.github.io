@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omkar Dixit | Portfolio</title>
+    
+    <!-- Simple elegant 'O' favicon using SVG data URI -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
+
+    <!-- Fonts: Playfair Display, Lora, EB Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'lora': ['"Lora"', 'serif'],
+                        'garamond': ['"EB Garamond"', 'serif'],
+                    },
+                    colors: {
+                        'charcoal': '#333333',
+                        /* Updated to an elegant pastel blue theme */
+                        'pastel-blue': '#8BA6C1',
+                        'solid-blue': '#5C7C99', 
+                        'pure-black': '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Styling for the page links to create a minimalist underline hover effect */
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #5C7C99;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="font-garamond antialiased selection:bg-pastel-blue selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 bg-white z-50 shadow-sm">
+        <div class="pt-10 pb-4 px-4 text-center">
+            <a href="portfolio.html" class="inline-block">
+                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-blue transition-colors duration-300">
+                    Omkar Dixit
+                </h1>
+            </a>
+        </div>
+        
+        <!-- Scroll Progress Bar -->
+        <div class="w-full h-1.5 bg-transparent">
+            <div id="scroll-progress-bar" class="h-full bg-solid-blue w-0 transition-all duration-75 ease-out"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto px-6 py-16 md:py-24 w-full">
+        
+        <!-- Profile Section: Bio & Circular Photo -->
+        <div class="flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between mb-16 gap-10">
+            
+            <!-- Bio & Intro -->
+            <div class="flex-1 text-center sm:text-left">
+                <h2 class="font-playfair text-4xl font-bold text-pastel-blue mb-3">Hello, I'm Omkar.</h2>
+                <h3 class="font-lora text-xl text-gray-500 italic mb-6">Product Manager & Business Analyst</h3>
+                
+                <div class="text-lg md:text-xl leading-relaxed text-pure-black space-y-5">
+                    <p>
+                        With a background in content strategy and a dedication to minimalist design, I am focused on building products that sit at the intersection of operational efficiency and human empathy. 
+                    </p>
+                    <p>
+                        Whether I am creating educational workflows, analyzing digital systems, or tinkering with hardware prototypes, my goal is always to distill complex problems into clear, elegant solutions. I write publicly to sharpen my thinking and document my journey.
+                    </p>
+                    
+                    <!-- Space reserved for extra writing/details -->
+                    <p class="text-gray-600">
+                        <em>Currently actively seeking roles in Product Management. Always open to discussing product philosophy, game theory, or exchanging good book recommendations.</em>
+                    </p>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="mt-8 font-lora text-gray-600">
+                    <a href="mailto:omkar@example.com" class="hover:text-solid-blue transition-colors mr-4">omkar@example.com</a>
+                    <span class="opacity-50">|</span>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="hover:text-solid-blue transition-colors ml-4 mr-4">LinkedIn</a>
+                    <span class="opacity-50">|</span>
+                    <span class="ml-4">Amravati, India</span>
+                </div>
+            </div>
+
+            <!-- Circular Photo -->
+            <div class="w-48 h-48 md:w-56 md:h-56 flex-shrink-0">
+                <!-- Replace 'your-photo.jpg' with your actual image file -->
+                <img src="https://via.placeholder.com/400x400.png?text=Omkar+Photo" alt="Omkar Dixit" class="w-full h-full object-cover rounded-full border-4 border-gray-50 shadow-sm transition-transform duration-500 hover:scale-105">
+            </div>
+        </div>
+
+        <!-- Navigation Links (Opening to new pages) -->
+        <nav class="flex flex-col sm:flex-row flex-wrap items-center sm:items-start justify-center sm:justify-start gap-8 md:gap-12 mb-16 border-t border-gray-100 pt-12">
+            <a href="about.html" target="_blank" class="nav-link font-playfair text-2xl text-charcoal hover:text-solid-blue transition-colors">
+                About Me
+            </a>
+            <a href="projects.html" target="_blank" class="nav-link font-playfair text-2xl text-charcoal hover:text-solid-blue transition-colors">
+                Projects
+            </a>
+            <!-- Links to your essay homepage -->
+            <a href="index.html" target="_blank" class="nav-link font-playfair text-2xl text-charcoal hover:text-solid-blue transition-colors">
+                Essays
+            </a>
+            <a href="resume.html" target="_blank" class="nav-link font-playfair text-2xl text-charcoal hover:text-solid-blue transition-colors">
+                CV / Resume
+            </a>
+        </nav>
+
+        <!-- Download Resume Button -->
+        <div class="text-center sm:text-left">
+            <!-- Replace 'Omkar_Dixit_Resume.pdf' with your actual PDF file -->
+            <a href="Omkar_Dixit_Resume.pdf" download class="inline-flex items-center px-8 py-3 border-2 border-pastel-blue text-solid-blue font-lora text-lg hover:bg-pastel-blue hover:text-white transition-all duration-300 rounded-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Resume
+            </a>
+        </div>
+
+        <!-- Elegant End of Page Marker -->
+        <div class="flex justify-center items-center mt-24 opacity-60">
+            <div class="h-px w-12 bg-pastel-blue"></div>
+            <div class="mx-6 text-pastel-blue text-2xl font-lora">✤</div>
+            <div class="h-px w-12 bg-pastel-blue"></div>
+        </div>
+
+    </main>
+
+    <script>
+        // Progress Bar Script
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBar = document.getElementById("scroll-progress-bar");
+
+            const updateProgressBar = () => {
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                
+                let scrollPercentage = (scrollTop / scrollHeight) * 100;
+                
+                if (scrollHeight === 0) {
+                    scrollPercentage = 100;
+                }
+
+                progressBar.style.width = scrollPercentage + "%";
+            };
+
+            window.addEventListener("scroll", updateProgressBar);
+            updateProgressBar();
+            window.addEventListener("resize", updateProgressBar);
+        });
+    </script>
+</body>
+</html>
