@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline-First Workflow Simulator | Omkar Dixit</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'playfair': ['"Playfair Display"', 'serif'], 'lora': ['"Lora"', 'serif'], 'garamond': ['"EB Garamond"', 'serif'] },
+                    colors: { 'charcoal': '#333333', 'pastel-purple': '#9B7EBD', 'solid-purple': '#7E57C2', 'pure-black': '#000000' }
+                }
+            }
+        }
+    </script>
+    <style> body { background-color: #ffffff; color: #000000; } html { scroll-behavior: smooth; } </style>
+</head>
+<body class="font-garamond antialiased selection:bg-pastel-purple selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Header (Matches Parent) -->
+    <header class="sticky top-0 bg-white z-50 shadow-sm">
+        <div class="pt-10 pb-4 px-4 text-center">
+            <a href="index.html" class="inline-block">
+                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-purple transition-colors duration-300">Omkar Dixit</h1>
+            </a>
+        </div>
+        <div class="w-full h-1.5 bg-transparent">
+            <div id="scroll-progress-bar" class="h-full bg-solid-purple w-0 transition-all duration-75 ease-out"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto px-6 py-12 md:py-16 w-full">
+        
+        <!-- Navigation Back to Parent -->
+        <div class="mb-10">
+            <a href="projects.html" class="font-lora text-pastel-purple hover:text-solid-purple transition-colors duration-300 italic text-lg inline-flex items-center gap-2">
+                <span>&larr;</span> Back to Projects
+            </a>
+        </div>
+
+        <!-- Child Page Header -->
+        <header class="mb-12 border-b border-gray-100 pb-8 text-center sm:text-left">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">Offline-First Workflow Simulator</h2>
+            <h3 class="font-lora text-xl text-pastel-purple italic">Interactive Web Application & Systems Architecture</h3>
+        </header>
+
+        <!-- Project Content Body -->
+        <article class="space-y-8">
+            
+            <section>
+                <p class="font-garamond text-xl text-pure-black leading-relaxed">
+                    An interactive, offline-first workflow simulator built to demonstrate product management and business analysis principles. This web application models a digital ticketing and baggage collection system for high-footfall, low-connectivity environments like rural transit hubs.
+                </p>
+            </section>
+
+            <section>
+                <h3 class="font-playfair text-2xl font-bold text-charcoal mb-3">The Core Challenge</h3>
+                <p class="font-garamond text-lg text-pure-black leading-relaxed">
+                    In operational environments like transit hubs and temple queues, network drops are inevitable. Operators cannot stop processing passengers or baggage just because the server timed out. The challenge was to design a system that seamlessly handles data intake locally and reconciles with the main server automatically once connectivity is restored.
+                </p>
+            </section>
+
+            <section>
+                <h3 class="font-playfair text-2xl font-bold text-charcoal mb-3">System Features & Edge Cases Handled</h3>
+                <ul class="font-garamond text-lg text-pure-black leading-relaxed list-disc list-inside space-y-2">
+                    <li><strong>Role-Based Routing:</strong> Distinct UI workflows for bus ticketing vs. static baggage collection counters.</li>
+                    <li><strong>Edge Computing Simulation:</strong> Utilizes browser <code class="bg-gray-100 px-1 rounded text-sm text-solid-purple">localStorage</code> to safely queue transactions when the network state is red.</li>
+                    <li><strong>Hardware Realities:</strong> Built-in simulated thermal receipts and inclusive custom baggage tokens for users without mobile devices.</li>
+                    <li><strong>MIS & Reconciliation:</strong> End-of-shift dashboard summarizing operational metrics with raw CSV export capabilities for back-office auditing.</li>
+                </ul>
+            </section>
+
+            <!-- Optional Button for Live Demo or GitHub -->
+            <section class="pt-6">
+                <a href="#" class="inline-block border-2 border-pastel-purple text-pastel-purple hover:bg-pastel-purple hover:text-white font-lora italic px-6 py-3 transition-colors duration-300">
+                    View Live Prototype
+                </a>
+            </section>
+
+        </article>
+
+        <!-- Footer Divider (Matches Parent) -->
+        <div class="flex justify-center items-center mt-24 opacity-60">
+            <div class="h-px w-12 bg-pastel-purple"></div>
+            <div class="mx-6 text-pastel-purple text-2xl font-lora">✤</div>
+            <div class="h-px w-12 bg-pastel-purple"></div>
+        </div>
+    </main>
+
+    <!-- Scroll Progress Script (Matches Parent) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBar = document.getElementById("scroll-progress-bar");
+            const updateProgressBar = () => {
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                progressBar.style.width = scrollHeight === 0 ? "100%" : (scrollTop / scrollHeight) * 100 + "%";
+            };
+            window.addEventListener("scroll", updateProgressBar);
+            updateProgressBar();
+        });
+    </script>
+</body>
+</html>
