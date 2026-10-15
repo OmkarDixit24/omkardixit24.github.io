@@ -1,288 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study | Omkar Dixit</title>
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'playfair': ['"Playfair Display"', 'serif'],
-                        'lora': ['"Lora"', 'serif'],
-                        'garamond': ['"EB Garamond"', 'serif'],
-                    },
-                    colors: {
-                        'charcoal': '#333333',
-                        'pastel-purple': '#9B7EBD',
-                        'solid-purple': '#7E57C2',
-                        'pure-black': '#000000',
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indeed Case Study | Proof of Work</title>
+  
+  <!-- Import Fonts: Lora for editorial headers, Inter for clean body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Configuration for Custom Fonts and Colors -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          },
+          colors: {
+            pastel: {
+              purple: '#9B7EBD',
+              purpleLight: 'rgba(155, 126, 189, 0.1)',
             }
+          }
         }
-    </script>
-
-    <style>
-        body {
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Reusing the beautiful blockquote style for the TL;DR section */
-        blockquote.tldr-box {
-            border-left: 4px solid #9B7EBD;
-            padding: 1.5rem;
-            margin: 2.5rem 0;
-            background-color: #fafafa;
-            border-radius: 0 8px 8px 0;
-        }
-
-        /* Standard paragraph styling for readability */
-        .case-study-body p {
-            margin-bottom: 1.5rem;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            letter-spacing: 0.01em;
-        }
-
-        .case-study-body h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: #333333;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #f3f4f6;
-            padding-bottom: 0.5rem;
-        }
-        
-        .case-study-body h4 {
-            font-family: "Playfair Display", serif;
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: #9B7EBD;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        /* Image Placeholder Styling */
-        .img-placeholder {
-            width: 100%;
-            background-color: #fafafa;
-            border: 2px dashed #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2.5rem 0;
-            border-radius: 4px;
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body class="font-garamond antialiased selection:bg-pastel-purple selection:text-white flex flex-col min-h-screen">
+<body class="bg-white text-gray-800 antialiased font-sans selection:bg-pastel-purple selection:text-white">
 
-    <!-- Sticky Header -->
-    <header class="sticky top-0 bg-white z-50 shadow-sm">
-        <div class="pt-10 pb-4 px-4 text-center">
-            <a href="index.html" class="inline-block">
-                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-purple transition-colors duration-300">
-                    Omkar Dixit
-                </h1>
-            </a>
+  <!-- =========================================
+       HERO SECTION & METADATA
+       ========================================= -->
+  <header class="max-w-4xl mx-auto px-6 pt-20 pb-12 border-b border-gray-100">
+    <div class="flex flex-wrap gap-3 mb-8 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+      <span class="px-3 py-1 bg-gray-50 rounded-full border border-gray-200">Role: Product Manager Concept</span>
+      <span class="px-3 py-1 bg-gray-50 rounded-full border border-gray-200">Focus: Marketplace Dynamics</span>
+      <span class="px-3 py-1 bg-gray-50 rounded-full border border-gray-200">Timeline: October 2026</span>
+    </div>
+    
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6">
+      Un-Ghosting the Job Market:<br>
+      <span class="text-pastel-purple">Rebuilding Candidate Trust on Indeed</span>
+    </h1>
+    
+    <h2 class="text-xl md:text-2xl font-sans text-gray-600 mb-8 max-w-3xl leading-relaxed">
+      How a 15-day tracking study of 165 applications revealed a 79% ghosting rate—and the automated closure mechanics required to fix it.
+    </h2>
+
+    <p class="text-lg font-serif italic text-gray-700 border-l-4 border-pastel-purple pl-6 py-2 max-w-3xl">
+      In a two-sided marketplace, liquidity dies without trust. When employers are allowed to hoard applications without consequence, the platform turns into a black hole. Here is how we force closure.
+    </p>
+  </header>
+
+  <!-- =========================================
+       EXECUTIVE SUMMARY / TL;DR
+       ========================================= -->
+  <section class="max-w-4xl mx-auto px-6 py-12">
+    <div class="bg-pastel-purpleLight border border-pastel-purple/30 rounded-2xl p-8 shadow-sm">
+      <h3 class="text-sm font-bold text-pastel-purple uppercase tracking-wider mb-6">Executive Summary</h3>
+      <ul class="space-y-6 text-gray-800 font-sans">
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-pastel-purple mr-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          <div><strong class="font-bold text-gray-900">The Problem:</strong> Indeed’s post-application UX relies on a silent "pull" architecture. My 15-day primary tracking study revealed a 79% ghosting rate, destroying candidate trust.</div>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-pastel-purple mr-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          <div><strong class="font-bold text-gray-900">The Solution:</strong> "Indeed Loop"—A system featuring Event-Driven Push Notifications, Automated Job Closures for expired listings, and an Algorithmic "Soft Penalty" for habitually unresponsive employers.</div>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-pastel-purple mr-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div><strong class="font-bold text-gray-900">The Impact:</strong> Restores marketplace liquidity by automating updates, forcing definitive psychological closure, and gently disincentivizing application hoarding.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CONTEXT & PRIMARY RESEARCH
+       ========================================= -->
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    
+    <article class="mb-16">
+      <h2 class="text-3xl font-serif font-bold text-gray-900 mb-6">The Trust Crisis</h2>
+      <p class="mb-6 font-sans text-gray-700 leading-relaxed text-lg">
+        A qualitative analysis of Indeed's Play Store reviews reveals a critical breakdown in marketplace trust. Users complain of <em>"no status change alerts"</em> and <em>"outdated jobs."</em> To validate these qualitative complaints, I conducted a 15-day quantitative tracking study of 165 live applications submitted between October 1st and October 15th.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10 my-12 items-center">
+        <!-- Data Visualization Box -->
+        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+          <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-8 text-center">15-Day Application Tracking Study</h4>
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between text-gray-600 mb-2 text-sm"><span class="font-medium">Total Applications Submitted</span> <span class="font-bold text-gray-900">165</span></div>
+              <div class="w-full bg-gray-100 rounded-full h-3"><div class="bg-gray-300 h-3 rounded-full" style="width: 100%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-600 mb-2 text-sm"><span class="font-medium">Status Updated by Employer</span> <span class="font-bold text-pastel-purple">21% (35)</span></div>
+              <div class="w-full bg-gray-100 rounded-full h-3"><div class="bg-pastel-purple h-3 rounded-full" style="width: 21%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-600 mb-2 text-sm"><span class="font-medium">Complete Ghosting (No Movement)</span> <span class="font-bold text-red-400">79% (130)</span></div>
+              <div class="w-full bg-gray-100 rounded-full h-3"><div class="bg-red-400 h-3 rounded-full" style="width: 79%"></div></div>
+            </div>
+          </div>
         </div>
         
-        <!-- Scroll Progress Bar -->
-        <div class="w-full h-1.5 bg-transparent">
-            <div id="scroll-progress-bar" class="h-full bg-solid-purple w-0 transition-all duration-75 ease-out"></div>
+        <!-- Insight Text -->
+        <div>
+          <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">The "Cliffhanger" Effect</h3>
+          <p class="text-lg text-gray-700 font-sans leading-relaxed">
+            The problem isn't just complete ghosting. Even within the 21% that received an update, a significant portion stalled indefinitely at <strong class="text-gray-900">"Application Viewed."</strong> The employer opened the resume but never dragged the candidate to a definitive "Rejected" state before the job ultimately expired. The system currently allows employers to leave candidates "on read."
+          </p>
         </div>
-    </header>
+      </div>
+    </article>
 
-    <main class="flex-grow max-w-3xl mx-auto px-6 py-16 md:py-24 w-full">
-        
-        <!-- Case Study Title Header -->
-        <header class="mb-12 text-center md:text-left">
-            <p class="font-lora text-sm text-pastel-purple mb-3 tracking-wide uppercase">Product Case Study - 2026</p>
-            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal leading-tight mb-4">
-                Indeed:Adding 'Indeed Loop' to the app.
-            </h2>
-            <h3 class="font-lora text-xl md:text-2xl text-gray-500 italic">
-                Optimizing offline-first ticketing workflows in low-connectivity environments.
-            </h3>
-        </header>
+    <!-- =========================================
+         THE BUILD / RICE MATRIX
+         ========================================= -->
+    <article class="mb-16">
+      <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Engineering Closure: The 'Indeed Loop'</h2>
+      <p class="mb-8 font-sans text-gray-700 leading-relaxed text-lg">
+        To restore marketplace liquidity, the psychological burden of tracking applications must be shifted off the candidate. I evaluated several system-level interventions before prioritizing a three-pillar automation strategy.
+      </p>
+      
+      <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-left font-sans border-collapse bg-white">
+          <thead class="bg-gray-50">
+            <tr class="border-b border-gray-200 text-xs tracking-wider uppercase text-gray-500">
+              <th class="py-5 px-6 font-semibold">Feature Idea</th>
+              <th class="py-5 px-6 font-semibold">Impact</th>
+              <th class="py-5 px-6 font-semibold">Effort</th>
+              <th class="py-5 px-6 font-semibold">Verdict</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700 divide-y divide-gray-100">
+            <tr class="hover:bg-gray-50 transition-colors">
+              <td class="py-5 px-6 font-medium">Strict Employer Mandates</td>
+              <td class="py-5 px-6 text-red-500">Low (Churn Risk)</td>
+              <td class="py-5 px-6">Low</td>
+              <td class="py-5 px-6 text-gray-500 italic">Discarded. Alienates the demand side.</td>
+            </tr>
+            <tr class="hover:bg-pastel-purpleLight transition-colors">
+              <td class="py-5 px-6 font-bold text-gray-900">Status Sync Push Notifications</td>
+              <td class="py-5 px-6 text-green-600 font-medium">High</td>
+              <td class="py-5 px-6 text-green-600 font-medium">Low</td>
+              <td class="py-5 px-6 text-pastel-purple font-bold">Selected.</td>
+            </tr>
+            <tr class="hover:bg-pastel-purpleLight transition-colors">
+              <td class="py-5 px-6 font-bold text-gray-900">Automated Closure Protocol</td>
+              <td class="py-5 px-6 text-green-600 font-medium">High</td>
+              <td class="py-5 px-6 text-yellow-600 font-medium">Medium</td>
+              <td class="py-5 px-6 text-pastel-purple font-bold">Selected.</td>
+            </tr>
+            <tr class="hover:bg-pastel-purpleLight transition-colors">
+              <td class="py-5 px-6 font-bold text-gray-900">The "Soft Penalty" Algorithm</td>
+              <td class="py-5 px-6 text-yellow-600 font-medium">Medium</td>
+              <td class="py-5 px-6 text-red-500 font-medium">High</td>
+              <td class="py-5 px-6 text-pastel-purple font-bold">Selected.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
 
-        <article class="case-study-body text-pure-black font-garamond text-lg">
-            
-            <!-- TL;DR / Executive Summary -->
-            <blockquote class="tldr-box">
-                <h4 style="margin-top: 0;">TL;DR / Takeaway</h4>
-                <p class="font-garamond mb-0" style="font-size: 1.15rem; color: #222;">
-                    This case study explores the friction points in municipal transit ticketing in Tuljapur. By implementing an offline-first batching protocol and streamlining the UI for conductors, we reduced ticket issuance time by 40% and eliminated data loss caused by network drops. The primary takeaway: deeply understanding environmental constraints is more critical than feature bloat.
-                </p>
-            </blockquote>
-
-            <!-- Section 1: The Foundation -->
-            <h3>The Foundation</h3>
-            
-            <h4>Context</h4>
-            <p>
-                During an on-ground operational analysis in Tuljapur, I observed severe bottlenecks in the digital bus ticketing and baggage counter systems. The existing handheld terminals relied on continuous 4G connectivity, which frequently dropped, causing long queues and frustrated operators.
-            </p>
-
-            <h4>The Goal</h4>
-            <p>
-                To design a resilient, offline-first digital ticketing workflow that allows operators to issue tickets seamlessly without network dependency, syncing data securely once a connection is re-established.
-            </p>
-
-            <h4>Hypothesis</h4>
-            <p>
-                If we transition the terminal software to an edge-computing model that stores transactional data locally and batches uploads via a lightweight JSON payload, we will reduce passenger wait times and increase daily revenue realization.
-            </p>
-
-            <!-- Section 2: Market & Ecosystem -->
-            <h3>Market & Ecosystem</h3>
-
-            <h4>Market</h4>
-            <p>
-                The tier-3 municipal transit sector in India handles millions of micro-transactions daily. It is a high-volume, low-margin environment where operational speed dictates profitability.
-            </p>
-
-            <h4>Marketplace & Competitors</h4>
-            <p>
-                Current hardware vendors primarily offer off-the-shelf POS systems designed for retail, not transit. Competitors focus on adding complex payment gateways rather than optimizing the core hardware-software interaction for speed and reliability.
-            </p>
-
-            <!-- Section 3: The Users -->
-            <h3>The Users</h3>
-
-            <h4>Audience</h4>
-            <p>
-                Our primary users are bus conductors and baggage counter clerks (aged 25-55), many of whom have limited digital literacy and operate in high-stress, crowded environments.
-            </p>
-
-            <h4>User Insights</h4>
-            <p>
-                Through shadowing sessions, I discovered that conductors rely heavily on muscle memory. The current UI required them to look at the screen for every input, breaking their visual contact with the crowd. They didn't need more features; they needed larger touch targets and haptic feedback.
-            </p>
-
-            <h4>User Journey</h4>
-            <p>
-                The passenger boarding process mapped out from a systems perspective highlighted the precise moments where network checks caused systemic delays.
-            </p>
-
-            <!-- Diagram Space for User Journey -->
-            <div class="img-placeholder h-64 md:h-80">
-                <span class="font-lora text-gray-400 text-lg italic text-center px-4">
-                    [ Diagram Placeholder: User Journey Map & Flowchart ]
-                </span>
-            </div>
-
-            <!-- Section 4: Product Strategy -->
-            <h3>Product Strategy</h3>
-
-            <h4>Feature Prioritization and MVP</h4>
-            <p>
-                Using a Value vs. Effort matrix, we aggressively descoped features. We deprioritized live fleet tracking (high effort, low immediate value to the conductor) and prioritized local data persistence and a simplified "two-tap" ticketing UI for the MVP.
-            </p>
-
-            <!-- Diagram Space for Prioritization Matrix -->
-            <div class="img-placeholder h-72">
-                <span class="font-lora text-gray-400 text-lg italic text-center px-4">
-                    [ Diagram Placeholder: RICE / Value vs. Effort Matrix ]
-                </span>
-            </div>
-
-            <!-- Section 5: Design & Execution -->
-            <h3>Design & Execution</h3>
-
-            <h4>Solutions</h4>
-            <p>
-                Initially, we explored three concepts: 1) Upgrading the hardware antennas, 2) Switching to a completely paper-based backup, and 3) An offline-first software architecture. We aligned on the third option as it solved the root cause without increasing hardware costs.
-            </p>
-
-            <h4>Final Solution</h4>
-            <p>
-                An optimized UI featuring stark, high-contrast buttons, haptic confirmation upon ticket generation, and a background sync engine that operates silently without interrupting the conductor's primary workflow.
-            </p>
-
-            <h4>Prototype</h4>
-            <p>
-                The mid-fidelity wireframes focused strictly on the conductor's view, emphasizing typography hierarchy and tactile interaction areas.
-            </p>
-
-            <!-- Diagram Space for Prototype Wireframes -->
-            <div class="img-placeholder h-96">
-                <span class="font-lora text-gray-400 text-lg italic text-center px-4">
-                    [ Image Placeholder: Mid-Fidelity Prototype / Wireframes ]
-                </span>
-            </div>
-
-            <!-- Section 6: Launch & Metrics -->
-            <h3>Launch & Metrics</h3>
-
-            <h4>GTM / Launch</h4>
-            <p>
-                The rollout strategy involved a localized pilot program with 10 conductors on high-traffic routes over a two-week period. We ran parallel runs with the old system to quantify the speed improvements and gather immediate qualitative feedback.
-            </p>
-
-            <h4>North Star Metric</h4>
-            <p>
-                <strong>Ticket Issuance Time (TIT):</strong> The average time taken from passenger request to physical ticket printing. Secondary metric: Percentage of data successfully synced to the central MIS at the end of the shift.
-            </p>
-
-            <!-- Section 7: Conclusion -->
-            <h3>Conclusion</h3>
-
-            <h4>Final Thoughts</h4>
-            <p>
-                Building for the next billion users often means designing for constraints rather than possibilities. This project reinforced my belief that the most elegant product solutions are often invisible—they simply remove friction and let the user get back to their reality.
-            </p>
-
-        </article>
-
-        <!-- Elegant End of Page Marker -->
-        <div class="flex justify-center items-center mt-20 opacity-60">
-            <div class="h-px w-12 bg-pastel-purple"></div>
-            <div class="mx-6 text-pastel-purple text-2xl font-lora">✤</div>
-            <div class="h-px w-12 bg-pastel-purple"></div>
+    <!-- =========================================
+         PROTOTYPE UI / UX
+         ========================================= -->
+    <article class="mb-16 bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-100">
+      <h2 class="text-2xl font-serif font-bold text-gray-900 mb-2 text-center">UI / UX Strategy</h2>
+      <p class="text-center text-gray-500 mb-10 max-w-2xl mx-auto">Visualizing the system-level interventions directly within the user interface to drive immediate psychological closure and employer accountability.</p>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- UI Card 1: The Automated Closure Badge -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 transform transition duration-300 hover:shadow-md hover:-translate-y-1">
+          <div class="flex flex-wrap items-center gap-2 mb-5">
+            <span class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1.5 rounded-md border border-gray-200 tracking-wide uppercase">
+              Closed by System
+            </span>
+            <span class="text-xs text-gray-400 font-medium">Expired without final selection</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Senior Data Analyst</h3>
+          <p class="text-sm text-gray-500 mt-1.5 font-medium">Acme Corp • Remote</p>
+          <div class="mt-6 pt-5 border-t border-gray-100 text-sm text-gray-500 flex justify-between items-center">
+            <span>Status stalled at:</span>
+            <span class="text-gray-800 font-bold bg-gray-50 px-2 py-1 rounded">Application Viewed</span>
+          </div>
         </div>
 
-    </main>
+        <!-- UI Card 2: The Soft Penalty / Responsive Badge -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 border-l-4 border-l-pastel-purple transform transition duration-300 hover:shadow-md hover:-translate-y-1">
+          <div class="flex items-center space-x-2 mb-5">
+            <span class="bg-pastel-purpleLight text-pastel-purple text-xs font-bold px-3 py-1.5 rounded-md inline-flex items-center tracking-wide uppercase">
+              <svg class="w-3.5 h-3.5 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
+              Highly Responsive Employer
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">IT Business Analyst</h3>
+          <p class="text-sm text-gray-500 mt-1.5 font-medium">TechFlow Inc • San Francisco</p>
+          <div class="mt-6 pt-5 border-t border-gray-100 text-sm text-gray-500 flex justify-between items-center">
+            <span>Usually responds within:</span>
+            <span class="text-pastel-purple font-bold">3 days</span>
+          </div>
+        </div>
+      </div>
+    </article>
 
-    <script>
-        // Progress Bar Script
-        document.addEventListener("DOMContentLoaded", function() {
-            const progressBar = document.getElementById("scroll-progress-bar");
+  </main>
 
-            const updateProgressBar = () => {
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                
-                let scrollPercentage = (scrollTop / scrollHeight) * 100;
-                
-                if (scrollHeight === 0) {
-                    scrollPercentage = 100;
-                }
+  <!-- =========================================
+       FOOTER & RETROSPECTIVE
+       ========================================= -->
+  <footer class="max-w-4xl mx-auto px-6 pt-12 pb-24 border-t border-gray-200 mt-8">
+    <h2 class="text-3xl font-serif font-bold text-gray-900 mb-6">Final Thoughts</h2>
+    <p class="font-sans text-gray-700 leading-relaxed text-lg mb-12 max-w-3xl">
+      Implementing the Automated Closure Protocol and the Soft Penalty means intentionally taking a short-term hit to Indeed's "Total Active Jobs" vanity metric. However, trading a vanity metric for genuine marketplace liquidity and candidate trust is the only way to ensure the platform's long-term survival. No user should ever be left "on read" by a platform.
+    </p>
+    
+    <div class="bg-gray-900 text-white rounded-2xl p-10 sm:flex sm:items-center sm:justify-between shadow-xl">
+      <div class="sm:pr-8">
+        <h4 class="text-2xl font-serif font-bold mb-3">Let's talk marketplace strategy.</h4>
+        <p class="text-gray-400 font-sans text-base max-w-md leading-relaxed">
+          Want to hear how I'd adjust the "Soft Penalty" algorithm to account for niche industries with naturally long hiring cycles?
+        </p>
+      </div>
+      <a href="mailto:your.email@example.com" class="inline-block mt-8 sm:mt-0 px-8 py-4 bg-pastel-purple hover:bg-opacity-90 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-pastel-purple/30 whitespace-nowrap">
+        Get in Touch
+      </a>
+    </div>
+  </footer>
 
-                progressBar.style.width = scrollPercentage + "%";
-            };
-
-            window.addEventListener("scroll", updateProgressBar);
-            updateProgressBar();
-            window.addEventListener("resize", updateProgressBar);
-        });
-    </script>
 </body>
 </html>
