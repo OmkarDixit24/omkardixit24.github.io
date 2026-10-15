@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study | Omkar Dixit</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23333333'>O</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'lora': ['"Lora"', 'serif'],
+                        'garamond': ['"EB Garamond"', 'serif'],
+                    },
+                    colors: {
+                        'charcoal': '#333333',
+                        'pastel-purple': '#9B7EBD',
+                        'solid-purple': '#7E57C2',
+                        'pure-black': '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Reusing the beautiful blockquote style for the TL;DR section */
+        blockquote.tldr-box {
+            border-left: 4px solid #9B7EBD;
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            background-color: #fafafa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Standard paragraph styling for readability */
+        .case-study-body p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+
+        .case-study-body h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #333333;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            padding-bottom: 0.5rem;
+        }
+        
+        .case-study-body h4 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #9B7EBD;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Image Placeholder Styling */
+        .img-placeholder {
+            width: 100%;
+            background-color: #fafafa;
+            border: 2px dashed #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2.5rem 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-garamond antialiased selection:bg-pastel-purple selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 bg-white z-50 shadow-sm">
+        <div class="pt-10 pb-4 px-4 text-center">
+            <a href="index.html" class="inline-block">
+                <h1 class="font-playfair text-3xl font-semibold text-charcoal tracking-wide hover:text-pastel-purple transition-colors duration-300">
+                    Omkar Dixit
+                </h1>
+            </a>
+        </div>
+        
+        <!-- Scroll Progress Bar -->
+        <div class="w-full h-1.5 bg-transparent">
+            <div id="scroll-progress-bar" class="h-full bg-solid-purple w-0 transition-all duration-75 ease-out"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto px-6 py-16 md:py-24 w-full">
+        
+        <!-- Case Study Title Header -->
+        <header class="mb-12 text-center md:text-left">
+            <p class="font-lora text-sm text-pastel-purple mb-3 tracking-wide uppercase">Product Case Study</p>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal leading-tight mb-4">
+                Tuljapur Transit: Inclusive Digitization
+            </h2>
+            <h3 class="font-lora text-xl md:text-2xl text-gray-500 italic">
+                Optimizing offline-first ticketing workflows in low-connectivity environments.
+            </h3>
+        </header>
+
+        <article class="case-study-body text-pure-black font-garamond text-lg">
+            
+            <!-- TL;DR / Executive Summary -->
+            <blockquote class="tldr-box">
+                <h4 style="margin-top: 0;">TL;DR / Takeaway</h4>
+                <p class="font-garamond mb-0" style="font-size: 1.15rem; color: #222;">
+                    This case study explores the friction points in municipal transit ticketing in Tuljapur. By implementing an offline-first batching protocol and streamlining the UI for conductors, we reduced ticket issuance time by 40% and eliminated data loss caused by network drops. The primary takeaway: deeply understanding environmental constraints is more critical than feature bloat.
+                </p>
+            </blockquote>
+
+            <!-- Section 1: The Foundation -->
+            <h3>The Foundation</h3>
+            
+            <h4>Context</h4>
+            <p>
+                During an on-ground operational analysis in Tuljapur, I observed severe bottlenecks in the digital bus ticketing and baggage counter systems. The existing handheld terminals relied on continuous 4G connectivity, which frequently dropped, causing long queues and frustrated operators.
+            </p>
+
+            <h4>The Goal</h4>
+            <p>
+                To design a resilient, offline-first digital ticketing workflow that allows operators to issue tickets seamlessly without network dependency, syncing data securely once a connection is re-established.
+            </p>
+
+            <h4>Hypothesis</h4>
+            <p>
+                If we transition the terminal software to an edge-computing model that stores transactional data locally and batches uploads via a lightweight JSON payload, we will reduce passenger wait times and increase daily revenue realization.
+            </p>
+
+            <!-- Section 2: Market & Ecosystem -->
+            <h3>Market & Ecosystem</h3>
+
+            <h4>Market</h4>
+            <p>
+                The tier-3 municipal transit sector in India handles millions of micro-transactions daily. It is a high-volume, low-margin environment where operational speed dictates profitability.
+            </p>
+
+            <h4>Marketplace & Competitors</h4>
+            <p>
+                Current hardware vendors primarily offer off-the-shelf POS systems designed for retail, not transit. Competitors focus on adding complex payment gateways rather than optimizing the core hardware-software interaction for speed and reliability.
+            </p>
+
+            <!-- Section 3: The Users -->
+            <h3>The Users</h3>
+
+            <h4>Audience</h4>
+            <p>
+                Our primary users are bus conductors and baggage counter clerks (aged 25-55), many of whom have limited digital literacy and operate in high-stress, crowded environments.
+            </p>
+
+            <h4>User Insights</h4>
+            <p>
+                Through shadowing sessions, I discovered that conductors rely heavily on muscle memory. The current UI required them to look at the screen for every input, breaking their visual contact with the crowd. They didn't need more features; they needed larger touch targets and haptic feedback.
+            </p>
+
+            <h4>User Journey</h4>
+            <p>
+                The passenger boarding process mapped out from a systems perspective highlighted the precise moments where network checks caused systemic delays.
+            </p>
+
+            <!-- Diagram Space for User Journey -->
+            <div class="img-placeholder h-64 md:h-80">
+                <span class="font-lora text-gray-400 text-lg italic text-center px-4">
+                    [ Diagram Placeholder: User Journey Map & Flowchart ]
+                </span>
+            </div>
+
+            <!-- Section 4: Product Strategy -->
+            <h3>Product Strategy</h3>
+
+            <h4>Feature Prioritization and MVP</h4>
+            <p>
+                Using a Value vs. Effort matrix, we aggressively descoped features. We deprioritized live fleet tracking (high effort, low immediate value to the conductor) and prioritized local data persistence and a simplified "two-tap" ticketing UI for the MVP.
+            </p>
+
+            <!-- Diagram Space for Prioritization Matrix -->
+            <div class="img-placeholder h-72">
+                <span class="font-lora text-gray-400 text-lg italic text-center px-4">
+                    [ Diagram Placeholder: RICE / Value vs. Effort Matrix ]
+                </span>
+            </div>
+
+            <!-- Section 5: Design & Execution -->
+            <h3>Design & Execution</h3>
+
+            <h4>Solutions</h4>
+            <p>
+                Initially, we explored three concepts: 1) Upgrading the hardware antennas, 2) Switching to a completely paper-based backup, and 3) An offline-first software architecture. We aligned on the third option as it solved the root cause without increasing hardware costs.
+            </p>
+
+            <h4>Final Solution</h4>
+            <p>
+                An optimized UI featuring stark, high-contrast buttons, haptic confirmation upon ticket generation, and a background sync engine that operates silently without interrupting the conductor's primary workflow.
+            </p>
+
+            <h4>Prototype</h4>
+            <p>
+                The mid-fidelity wireframes focused strictly on the conductor's view, emphasizing typography hierarchy and tactile interaction areas.
+            </p>
+
+            <!-- Diagram Space for Prototype Wireframes -->
+            <div class="img-placeholder h-96">
+                <span class="font-lora text-gray-400 text-lg italic text-center px-4">
+                    [ Image Placeholder: Mid-Fidelity Prototype / Wireframes ]
+                </span>
+            </div>
+
+            <!-- Section 6: Launch & Metrics -->
+            <h3>Launch & Metrics</h3>
+
+            <h4>GTM / Launch</h4>
+            <p>
+                The rollout strategy involved a localized pilot program with 10 conductors on high-traffic routes over a two-week period. We ran parallel runs with the old system to quantify the speed improvements and gather immediate qualitative feedback.
+            </p>
+
+            <h4>North Star Metric</h4>
+            <p>
+                <strong>Ticket Issuance Time (TIT):</strong> The average time taken from passenger request to physical ticket printing. Secondary metric: Percentage of data successfully synced to the central MIS at the end of the shift.
+            </p>
+
+            <!-- Section 7: Conclusion -->
+            <h3>Conclusion</h3>
+
+            <h4>Final Thoughts</h4>
+            <p>
+                Building for the next billion users often means designing for constraints rather than possibilities. This project reinforced my belief that the most elegant product solutions are often invisible—they simply remove friction and let the user get back to their reality.
+            </p>
+
+        </article>
+
+        <!-- Elegant End of Page Marker -->
+        <div class="flex justify-center items-center mt-20 opacity-60">
+            <div class="h-px w-12 bg-pastel-purple"></div>
+            <div class="mx-6 text-pastel-purple text-2xl font-lora">✤</div>
+            <div class="h-px w-12 bg-pastel-purple"></div>
+        </div>
+
+    </main>
+
+    <script>
+        // Progress Bar Script
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBar = document.getElementById("scroll-progress-bar");
+
+            const updateProgressBar = () => {
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                
+                let scrollPercentage = (scrollTop / scrollHeight) * 100;
+                
+                if (scrollHeight === 0) {
+                    scrollPercentage = 100;
+                }
+
+                progressBar.style.width = scrollPercentage + "%";
+            };
+
+            window.addEventListener("scroll", updateProgressBar);
+            updateProgressBar();
+            window.addEventListener("resize", updateProgressBar);
+        });
+    </script>
+</body>
+</html>
