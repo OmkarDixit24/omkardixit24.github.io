@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essays — Omkar Dixit</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF5A1F'/><text x='50' y='68' font-size='52' font-family='Arial,sans-serif' font-weight='700' fill='white' text-anchor='middle'>OD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="logo">Omkar Dixit</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="essays.html" class="active">Essays</a></li>
+        <li><a href="cv.html">CV/Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h1>Essays</h1>
+      <p>Long-form notes on investing, ideas, and the patterns that matter.</p>
+    </div>
+
+    <div class="essays-toolbar">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="essay-search" placeholder="Search essays…" autocomplete="off">
+      </div>
+      <span class="essay-count" id="essay-count"></span>
+    </div>
+
+    <div class="essays-list" id="essays-list">
+      <!-- Essays are injected / filtered by JS. Sample set below. -->
+      <article class="essay-item" data-title="The Compound Effect of Better Questions" data-date="2026-10-12">
+        <span class="date">Oct 2026</span>
+        <h3><a href="#">The Compound Effect of Better Questions</a></h3>
+        <span class="read-time">8 min</span>
+      </article>
+      <article class="essay-item" data-title="Why Most Investment Narratives Fail" data-date="2026-08-28">
+        <span class="date">Aug 2026</span>
+        <h3><a href="#">Why Most Investment Narratives Fail</a></h3>
+        <span class="read-time">12 min</span>
+      </article>
+      <article class="essay-item" data-title="Reading as a Portfolio" data-date="2026-07-15">
+        <span class="date">Jul 2026</span>
+        <h3><a href="#">Reading as a Portfolio</a></h3>
+        <span class="read-time">6 min</span>
+      </article>
+      <article class="essay-item" data-title="On Intellectual Humility in Markets" data-date="2026-05-03">
+        <span class="date">May 2026</span>
+        <h3><a href="#">On Intellectual Humility in Markets</a></h3>
+        <span class="read-time">10 min</span>
+      </article>
+      <article class="essay-item" data-title="The Quiet Edge of Primary Sources" data-date="2026-03-19">
+        <span class="date">Mar 2026</span>
+        <h3><a href="#">The Quiet Edge of Primary Sources</a></h3>
+        <span class="read-time">7 min</span>
+      </article>
+      <article class="essay-item" data-title="Time Horizons and Decision Quality" data-date="2026-01-22">
+        <span class="date">Jan 2026</span>
+        <h3><a href="#">Time Horizons and Decision Quality</a></h3>
+        <span class="read-time">9 min</span>
+      </article>
+      <article class="essay-item" data-title="Notes on Building a Personal Research System" data-date="2025-11-08">
+        <span class="date">Nov 2025</span>
+        <h3><a href="#">Notes on Building a Personal Research System</a></h3>
+        <span class="read-time">11 min</span>
+      </article>
+      <article class="essay-item" data-title="What History Teaches About Cycles" data-date="2025-09-14">
+        <span class="date">Sep 2025</span>
+        <h3><a href="#">What History Teaches About Cycles</a></h3>
+        <span class="read-time">14 min</span>
+      </article>
+      <article class="essay-item" data-title="The Cost of Certainty" data-date="2025-07-02">
+        <span class="date">Jul 2025</span>
+        <h3><a href="#">The Cost of Certainty</a></h3>
+        <span class="read-time">5 min</span>
+      </article>
+      <article class="essay-item" data-title="Curiosity as an Investing Skill" data-date="2025-04-18">
+        <span class="date">Apr 2025</span>
+        <h3><a href="#">Curiosity as an Investing Skill</a></h3>
+        <span class="read-time">8 min</span>
+      </article>
+    </div>
+
+    <div class="no-results" id="no-results">No essays match your search.</div>
+
+    <div class="pagination" id="pagination">
+      <button id="prev-page" disabled>Previous</button>
+      <span class="page-info" id="page-info">Page 1</span>
+      <button id="next-page">Next</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <ul class="socials">
+        <li><a href="mailto:hello@omkardixit.com">Email</a></li>
+        <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <p class="copyright">© 2027 Omkar Dixit</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const ITEMS_PER_PAGE = 10;
+      const PAGINATION_THRESHOLD = 50; // only show pagination after this many essays
+
+      const listEl = document.getElementById('essays-list');
+      const searchInput = document.getElementById('essay-search');
+      const countEl = document.getElementById('essay-count');
+      const noResults = document.getElementById('no-results');
+      const paginationEl = document.getElementById('pagination');
+      const prevBtn = document.getElementById('prev-page');
+      const nextBtn = document.getElementById('next-page');
+      const pageInfo = document.getElementById('page-info');
+
+      const allItems = Array.from(listEl.querySelectorAll('.essay-item'));
+      let filtered = allItems.slice();
+      let currentPage = 1;
+
+      function updateCount() {
+        const total = allItems.length;
+        const shown = filtered.length;
+        if (searchInput.value.trim()) {
+          countEl.textContent = shown + ' of ' + total + ' essays';
+        } else {
+          countEl.textContent = total + ' essays';
+        }
+      }
+
+      function shouldShowPagination() {
+        return filtered.length > PAGINATION_THRESHOLD;
+      }
+
+      function render() {
+        const showPagination = shouldShowPagination();
+        const totalPages = showPagination
+          ? Math.ceil(filtered.length / ITEMS_PER_PAGE)
+          : 1;
+
+        if (currentPage > totalPages) currentPage = totalPages || 1;
+
+        // Hide all first
+        allItems.forEach(item => item.classList.add('hidden'));
+
+        if (filtered.length === 0) {
+          noResults.classList.add('visible');
+          paginationEl.classList.remove('visible');
+          updateCount();
+          return;
+        }
+
+        noResults.classList.remove('visible');
+
+        let toShow;
+        if (showPagination) {
+          const start = (currentPage - 1) * ITEMS_PER_PAGE;
+          toShow = filtered.slice(start, start + ITEMS_PER_PAGE);
+          paginationEl.classList.add('visible');
+          pageInfo.textContent = 'Page ' + currentPage + ' of ' + totalPages;
+          prevBtn.disabled = currentPage <= 1;
+          nextBtn.disabled = currentPage >= totalPages;
+        } else {
+          toShow = filtered;
+          paginationEl.classList.remove('visible');
+        }
+
+        toShow.forEach(item => item.classList.remove('hidden'));
+        updateCount();
+      }
+
+      function filterEssays() {
+        const q = searchInput.value.trim().toLowerCase();
+        if (!q) {
+          filtered = allItems.slice();
+        } else {
+          filtered = allItems.filter(item => {
+            const title = (item.dataset.title || '').toLowerCase();
+            return title.includes(q);
+          });
+        }
+        currentPage = 1;
+        render();
+      }
+
+      searchInput.addEventListener('input', filterEssays);
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+      nextBtn.addEventListener('click', () => {
+        const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+        if (currentPage < totalPages) {
+          currentPage++;
+          render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      // Initial render
+      render();
+    })();
+  </script>
+</body>
+</html>
