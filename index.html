@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omkar Dixit</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF5A1F'/><text x='50' y='68' font-size='52' font-family='Arial,sans-serif' font-weight='700' fill='white' text-anchor='middle'>OD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --accent: #FF5A1F;
+      --border: #e8e6e3;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ——— Header ——— */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 249, 247, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      transition: color 0.2s ease;
+    }
+
+    .logo:hover {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ——— Main Content ——— */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 1.35rem;
+      max-width: 34rem;
+    }
+
+    .hero-text p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .photo-wrap {
+      position: relative;
+    }
+
+    .photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 12px -12px -12px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 4px;
+      background: linear-gradient(145deg, #e8e6e3 0%, #d4d1cc 100%);
+      display: block;
+    }
+
+    /* Placeholder for photo */
+    .photo-placeholder {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 4px;
+      background: linear-gradient(145deg, #e8e6e3 0%, #d4d1cc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9a9792;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ——— Podcast Bar ——— */
+    .podcast {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .podcast-inner {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      transition: box-shadow 0.25s ease;
+    }
+
+    .podcast-inner:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .podcast-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #FF5A1F 0%, #FF8A4C 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .podcast-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .podcast-info p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .podcast-link {
+      margin-left: auto;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s ease;
+    }
+
+    .podcast-link:hover {
+      gap: 0.55rem;
+    }
+
+    /* ——— Footer ——— */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .socials {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .socials a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .socials a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ——— Responsive ——— */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2.25rem;
+      }
+
+      .photo-wrap {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .podcast-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.75rem;
+      }
+
+      .podcast-link {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1.25rem 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      main {
+        padding: 3rem 1.5rem 3.5rem;
+      }
+
+      .hero-text h1 {
+        font-size: 1.9rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .socials {
+        gap: 1.25rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/" class="logo">Omkar Dixit</a>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#essays">Essays</a></li>
+        <li><a href="#cv">CV/Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="hero-text">
+        <h1>Curious mind.<br>Capital thinker.</h1>
+        <p>
+          I explore the intersection of ideas, markets, and human behavior. 
+          My work sits at the crossroads of investing, technology, and storytelling—always 
+          searching for patterns that compound over time.
+        </p>
+        <p>
+          Through writing, conversations, and long-form thinking, I try to make sense of 
+          complexity without losing the plot. I believe the best insights often come from 
+          the quiet spaces between disciplines.
+        </p>
+        <p>
+          When I’m not reading, writing, or recording, you’ll find me chasing better questions 
+          rather than easy answers. Welcome to my corner of the internet.
+        </p>
+      </div>
+      <div class="photo-wrap">
+        <!-- Replace the placeholder div below with: <img src="your-photo.jpg" alt="Omkar Dixit" class="photo"> -->
+        <div class="photo-placeholder">Your Photo</div>
+      </div>
+    </section>
+  </main>
+
+  <section class="podcast">
+    <a href="https://www.youtube.com" target="_blank" rel="noopener" class="podcast-inner">
+      <div class="podcast-logo">C&amp;C</div>
+      <div class="podcast-info">
+        <h2>Capital &amp; Curiosity</h2>
+        <p>Ideas Worth Investing</p>
+      </div>
+      <span class="podcast-link">
+        Watch on YouTube
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <ul class="socials">
+        <li><a href="mailto:hello@omkardixit.com">Email</a></li>
+        <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <p class="copyright">© 2027 Omkar Dixit</p>
+    </div>
+  </footer>
+</body>
+</html>
